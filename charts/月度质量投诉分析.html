@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>中国质量预警大数据平台</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body style="background-color:#fff;">
+
+
+
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/echarts.min.js"></script>
+
+<script>
+    $(function(){
+        var iwTop = echarts.init(document.getElementById('iw-top'));
+
+        var iwTopOption = {
+            title: {
+                text: '',
+                textStyle:{
+                    fontWeight:'normal'
+                }
+            },
+            legend: {
+                x : 'right',
+                y : 'top',
+                data:['今日','最高','最低']
+            },
+            xAxis : [
+                {
+                    splitLine: {show: true},
+                    type : 'category',
+                    axisLabel: {
+                        interval: 0,
+                        rotate: 45,
+                        margin: 2
+                    },
+                    data : ['食品加工','食品制造','饮料制造','烟草加工','纺织业','服装制造','皮革制品','木材加工','家具制造','造纸业','印刷业','文体制造','石油加工','化学制品','医药制造','化学纤维','橡胶制品','塑料制品','非金属制品','黑色金属','有色金属','金属制品','专用设备','交通运输','电气机械','电子通讯','仪器仪表','工艺品']
+                }
+
+            ],
+            yAxis : [
+                {
+                    type : 'value',
+                    min:70
+                }
+            ],
+            series : [
+                {
+                    name:'今日',
+                    type:'bar',
+                    data:[87.96,83.4,88.56,78.37,86.33,86.35,89.15,88.38,81.19,81.02,85.75,89.56,79.44,75.11,77.86,80.57,80.56,84.22,83.4,80.72,77.06,75.88,76.9,76.79,73.2,74.05,89.86,90.97],
+                    itemStyle: {
+                        normal: {
+                            color: '#99d4f9'
+                        }
+                    },
+                    barWidth:20
+                },
+                {
+                    name:'最高',
+                    type:'line',
+                    data:[88.32,83.36,87.95,80.78,87.87,89.5,89.6,92.3,85.3,84.78,89.2,93.32,84.3,79.3,82.36,83.21,86.52,88.36,89.55,85.64,77.23,78.32,80.52,79.63,79.52,79.32,93.52,91.32],
+
+
+                    itemStyle: {
+                        normal: {
+                            color: '#ffa400'
+                        }
+                    },
+                    symbolSize:8,
+                    lineStyle:{
+                        normal:{
+                            width:3
+                        }
+                    }
+                },
+                {
+                    name:'最低',
+                    type:'line',
+                    data:[84.31,72.7,80.6,77.36,83.6,83.9,83.5,87.3,80.03,79.25,85.21,88.42,77.36,73.21,76.32,72.11,79.21,82.63,80.87,78.96,74.69,74.92,75.92,73.12,72.41,71.03,88.36,88.88],
+                    itemStyle: {
+                        normal: {
+                            color: '#45b4e6'
+                        }
+                    },
+                    symbolSize:8,
+                    lineStyle:{
+                        normal:{
+                            width:3
+                        }
+                    }
+                }
+
+            ]
+        };
+
+
+        iwBottom.setOption(iwBottomOption); 
+    });
+</script>
+</body>
+</html>

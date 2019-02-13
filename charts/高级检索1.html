@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+
+</head>
+
+<body style="background-color:#fff;">
+
+    <div id="cpdlfb" style="height:405px;width:680px;" ></div>
+
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <script src="../js/echarts.min.js"></script>
+    <script>
+        $(function() {
+            /*产品地理分布 start*/
+            var cpdlfb = echarts.init(document.getElementById('cpdlfb'));
+
+            var cpdlfbOption = {
+                backgroundColor:'#fff',
+                title : {
+                    text: '',
+                },
+                legend: {
+                    x : 'center',
+                    y : 'bottom',
+                    data:['杭州','上海','南京','南昌','合肥','武汉','福州','长沙','广州','其他']
+                },
+                calculable : true,
+                series : [
+                    {
+                        name:'面积模式',
+                        type:'pie',
+                        roseType : 'area',
+                        data:[
+                            {
+                                value:50,
+                                name:'杭州',
+                                itemStyle:{
+                                    normal:{
+                                        color:'#ff7445'
+                                    }
+                                }
+                            },
+                            {value:40, name:'上海',
+                                itemStyle:{
+                                    normal:{
+                                        color:'#f3ac40'
+                                    }
+                                }},
+                            {value:30, name:'南京',
+                                itemStyle:{
+                                    normal:{
+                                        color:'#73be47'
+                                    }
+                                }},
+                            {value:20, name:'南昌',
+                                itemStyle:{
+                                    normal:{
+                                        color:'#09c3e4'
+                                    }
+                                }},
+                                {value:15, name:'合肥',
+                                itemStyle:{
+                                    normal:{
+                                        color:'pink'
+                                    }
+                                }},
+                                {value:10, name:'武汉',
+                                itemStyle:{
+                                    normal:{
+                                        color:'blue'
+                                    }
+                                }},
+                                {value:7, name:'福州',
+                                itemStyle:{
+                                    normal:{
+                                        color:'red'
+                                    }
+                                }},
+                                {value:5, name:'长沙',
+                                itemStyle:{
+                                    normal:{
+                                        color:'green'
+                                    }
+                                }},
+                                {value:5, name:'广州',
+                                itemStyle:{
+                                    normal:{
+                                        color:'yellow'
+                                    }
+                                }},
+                            {value:3, name:'其他',
+                                itemStyle:{
+                                    normal:{
+                                        color:'#28a8e3'
+                                    }
+                                }}
+                        ]
+                    }
+                ]
+            };
+            window.onresize = cpdlfb.resize;
+            cpdlfb.setOption(cpdlfbOption);
+            /*产品地理分布 end*/
+        });
+    </script>
+</body>
+</html>

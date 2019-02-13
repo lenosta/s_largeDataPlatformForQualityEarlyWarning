@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="content">
+    <div class="content-middle">
+       
+        <div class="iw">
+            <span class="title-box"></span>
+            <div class="clear"></div>
+            <div id="iw-bottom"style="height: 750px;"></div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/echarts.min.js"></script>
+
+<script>
+    $(function(){
+        
+
+        var iwBottom = echarts.init(document.getElementById('iw-bottom'));
+
+        var iwBottomOption = {
+            title: {
+                text: '抽检不合格品影响范围分析',
+                x: 'center',
+                textStyle: {
+                    fontWeight: 'normal'
+                }
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                x: 'right',
+                orient: 'vertical',
+                data:['不合格品牌量','涉及企业数量','波及城市数量']
+            },
+            xAxis:{
+                type:'value',
+                splitLine: {show: false}
+            },
+            yAxis:{
+                type:'category',
+                splitLine: {show: false},
+                data : ['金属制品','专用设备','有色金属','化学制品','医药制造','烟草加工','造纸业','家具制造','电子通讯','黑色金属','非金属制品','纺织业','木材加工','交通运输','化学纤维','仪器仪表','食品加工','电气机械','皮革制品','工艺品','塑料制品','纺织业','印刷业','橡胶制品','服装制造','石油加工','饮料制造','食品制造']
+            },
+            series:[
+                {
+                    name:'不合格品牌量',
+                    type: 'bar',
+                    stack: '总量',
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'insideRight'
+                        }
+                    },
+                    data: [10, 14, 13, 9, 5, 12, 34, 9, 21, 29, 16, 14, 19, 19, 26, 16, 23,32, 16, 24, 41, 18, 14, 22, 28, 11, 32, 45],
+                    itemStyle: {
+                        normal: {
+                            color: '#ff7f50'
+                        }
+                    },
+                    barWidth:30
+                },
+                {
+                    name:'涉及企业数量',
+                    type: 'bar',
+                    stack: '总量',
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'insideRight'
+                        }
+                    },
+                    data: [46, 63, 53, 73, 53, 130, 104, 63, 92, 146, 72, 162, 126, 71, 111, 81, 123, 123, 145, 93, 152, 182, 134, 132, 210, 192, 221, 210],
+                    itemStyle: {
+                        normal: {
+                            color: '#99d4f9'
+                        }
+                    }
+                },
+                {
+                    name:'波及城市数量',
+                    type: 'bar',
+                    stack: '总量',
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'insideRight'
+                        }
+                    },
+                    data: [158, 162, 186, 205, 258, 163, 163, 256, 190, 163, 246, 154, 215, 251, 222, 256, 230, 230, 256, 325, 229, 256, 325, 325, 234, 311, 231, 281],
+
+
+
+                    itemStyle: {
+                        normal: {
+                            color: '#FCCE10'
+                        }
+                    }
+                }
+            ]
+        };
+
+        iwBottom.setOption(iwBottomOption);
+    });
+</script>
+</html>

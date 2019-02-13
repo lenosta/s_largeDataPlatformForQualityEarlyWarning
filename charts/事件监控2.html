@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <style>
+
+    </style>
+</head>
+
+<body>
+	<div id="sphy" style="height:385px;"></div>
+      
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <script src="../js/echarts.min.js"></script>
+    <script>
+        $(function() {
+            
+            /*食品行业 start*/
+            var sphy = echarts.init(document.getElementById('sphy'));
+
+            var sphyOption = {
+                backgroundColor:'#fff',
+                title: {
+                    text: ''
+                },
+                tooltip : {
+        trigger: 'axis'
+    },
+                radar: [
+                    {
+                        indicator: [
+                            { text: '行业标准法规完善度' , max: 100},
+                            { text: '行业产品质量安全度' , max: 100},
+                            { text: '抽检合格率' , max: 100},
+                            { text: '互联网正面舆论倾向度' , max: 100},
+                             { text: '企业诚信度', max: 100 },
+                            { text: '群众满意度' , max: 100}
+                        ],
+                        radius: 120,
+                        splitNumber: 4,
+                        shape: 'circle',
+                        name: {
+                            formatter:'【{value}】',
+                            textStyle: {
+                                color:'#000'
+                            }
+                        },
+                        splitArea: {
+                            areaStyle: {
+                                color: ['rgba(255, 255, 255, 1)'],
+                            }
+                        }
+                    }
+                ],
+                series: [
+                    {
+                        name: '雷达图',
+                        type: 'radar',
+                        data: [
+                            {
+                                value: [ 77, 82, 85, 74, 80,68],
+                                name: '',
+                                symbol: 'rect',
+                                symbolSize: 0,
+                                lineStyle: {
+                                    normal: {
+                                        width:0
+                                    }
+                                },
+                                areaStyle:{
+                                    normal:{
+                                        color: 'rgba(21,161,223,0.8)'
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            };
+            window.onresize = sphy.resize;
+            sphy.setOption(sphyOption);
+            /*食品行业 end*/
+
+        });
+    </script>
+</body>
+</html>

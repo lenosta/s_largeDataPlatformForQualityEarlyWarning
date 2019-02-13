@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<div id="main" style="width:100%;margin:0 auto 0;height:730px"></div>
+
+	<script src="../js/jquery-1.11.3.min.js"></script>
+	<script src="../js/echarts.min.js"></script>
+	<script>
+		$(function() {
+			var myChart = echarts.init(document.getElementById('main'));
+
+			var option = {
+				title : {
+					text : '重点企业按省分布统计',
+					x : 'center',
+					textStyle : {
+						fontWeight : 'normal'
+					}
+				},
+                tooltip : {
+				trigger: 'axis'
+			},
+				legend : {
+					x : 'right',
+					orient : 'vertical',
+					data : [ '2015年' ]
+				},
+				xAxis : [ {
+					splitLine : {
+						show : true
+					},
+					type : 'category',
+					axisLabel : {
+						interval : 0,
+						rotate : 45,
+						margin : 2
+					},
+				data: ['北京市','天津市','河北','山西','内蒙古','辽宁','吉林','黑龙江','上海市','江苏','浙江','安徽','福建','江西','山东','河南','湖北','湖南','广东','广西','海南','重庆市','四川','贵州','云南','陕西','甘肃','青海','宁夏','新疆','西藏'],
+				}
+
+				],
+				yAxis : [ {
+					type : 'value',
+					min : 0
+				} ],
+				series : [ 
+				 {
+					name : '2015年',
+					type : 'bar',
+                data: [74, 64, 79, 75, 62, 70, 75, 85, 75, 66, 89, 78, 90, 73, 85, 85, 70, 75, 96, 66, 70, 88, 90, 76,67, 57, 50, 67, 52, 43, 15],
+					itemStyle : {
+						normal : {
+							color : '#f3ac40'
+						}
+					},
+                    markPoint: {
+                data: [
+                    { type: 'max', name: '最大值' },
+                    { type: 'min', name: '最小值' }
+                ]
+            },
+            markLine: {
+                data: [
+                    { type: 'average', name: '平均值' }
+                ]
+            },
+					barWidth : 20
+				}
+
+				]
+			};
+
+			//使Echarts图表自适应响应窗口变化
+			window.onresize = myChart.resize;
+
+			// 为echarts对象加载数据
+			myChart.setOption(option);
+		});
+	</script>
+</body>
+</html>

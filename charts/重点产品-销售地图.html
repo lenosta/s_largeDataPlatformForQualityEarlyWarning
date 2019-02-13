@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>行业活跃度模型</title>
+</head>
+
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width:90%;margin:0 auto 0;height:415px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="../js/echarts-all.js"></script>
+    <script type="text/javascript">
+
+    var myChart = echarts.init(document.getElementById('main'));
+
+    option = {
+
+    title : {
+        text: '',
+        subtext: '',
+        x:'center'
+    },
+    legend: {
+        show:true,
+        orient: 'vertical',
+        left: 'left',
+        data: ['小米空气净化器', '桑乐金空气净化器', '伟士德空气净化器']
+    },
+    tooltip : {
+        trigger: 'item'
+    },
+    dataRange: {
+        min: 0,
+        max: 140000,
+        x: 'right',
+        y: 'bottom',
+        text: ['高', '低'],           // 文本，默认为数值文本
+        color: ['orangered', 'yellow', 'lightskyblue'],
+        calculable: true
+    },
+    series : [
+        {
+            name: '小米空气净化器',
+            type: 'map',
+            mapType: 'china',
+            roam: false,
+            itemStyle:{
+                normal:{label:{show:true}},
+                emphasis:{label:{show:true}}
+            },
+            showLegendSymbol:true,
+            data:[
+                {name: '北京',value: 135252},
+{name: '天津',value: 21675},
+{name: '河北',value: 17196},
+{name: '山西',value: 16845},
+{name: '内蒙古',value: 6589},
+{name: '辽宁',value: 39882},
+{name: '吉林',value: 7345},
+{name: '黑龙江',value: 7268},
+{name: '上海',value: 54187},
+{name: '江苏',value: 67626},
+{name: '浙江',value: 54187},
+{name: '安徽',value: 7053},
+{name: '福建',value: 6632},
+{name: '江西',value: 7037},
+{name: '山东',value: 27137},
+{name: '河南',value: 39882},
+{name: '湖北',value: 13525},
+{name: '湖南',value: 6458},
+{name: '广东',value: 46818},
+{name: '广西',value: 7961},
+{name: '海南',value: 5648},
+{name: '重庆市',value: 5987},
+{name: '四川',value: 7586},
+{name: '贵州',value: 6352},
+{name: '云南',value: 4687},
+{name: '西藏',value: 1325},
+{name: '陕西',value: 6845},
+{name: '甘肃',value: 5234},
+{name: '青海',value: 2654},
+{name: '宁夏',value: 2478},
+{name: '新疆',value: 1423}
+            ]
+        },
+        {
+            name: '桑乐金空气净化器',
+            type: 'map',
+            mapType: 'china',
+            itemStyle:{
+                normal:{label:{show:true}},
+                emphasis:{label:{show:true}}
+            },
+            data:[
+                { name: '北京', value: 111384 },
+{ name: '天津', value: 17850 },
+{ name: '河北', value: 15926 },
+{ name: '山西', value: 15905 },
+{ name: '内蒙古', value: 5845 },
+{ name: '辽宁', value: 32844 },
+{ name: '吉林', value: 5876 },
+{ name: '黑龙江', value: 6023 },
+{ name: '上海', value: 44625 },
+{ name: '江苏', value: 55692 },
+{ name: '浙江', value: 44625 },
+{ name: '安徽', value: 5823 },
+{ name: '福建', value: 5346 },
+{ name: '江西', value: 5987 },
+{ name: '山东', value: 22348 },
+{ name: '河南', value: 32844 },
+{ name: '湖北', value: 11138 },
+{ name: '湖南', value: 5926 },
+{ name: '广东', value: 38556 },
+{ name: '广西', value: 5900 },
+{ name: '海南', value: 5942 },
+{ name: '重庆市', value: 5926 },
+{ name: '四川', value: 5901 },
+{ name: '贵州', value: 5554 },
+{ name: '云南', value: 4325 },
+{ name: '西藏', value: 2578 },
+{ name: '陕西', value: 4562 },
+{ name: '甘肃', value: 4568 },
+{ name: '青海', value: 1256 },
+{ name: '宁夏', value: 1356 },
+{ name: '新疆', value: 1256 }
+            ]
+        },
+        {
+            name: '伟士德空气净化器',
+            type: 'map',
+            mapType: 'china',
+            itemStyle:{
+                normal:{label:{show:true}},
+                emphasis:{label:{show:true}}
+            },
+            data:[
+                { name: '北京', value: 87516 },
+{ name: '天津', value: 14025 },
+{ name: '河北', value: 8656 },
+{ name: '山西', value: 5789 },
+{ name: '内蒙古', value: 4984 },
+{ name: '辽宁', value: 25806 },
+{ name: '吉林', value: 4321 },
+{ name: '黑龙江', value: 4122 },
+{ name: '上海', value: 35062 },
+{ name: '江苏', value: 43758 },
+{ name: '浙江', value: 35123 },
+{ name: '安徽', value: 4031 },
+{ name: '福建', value: 4001 },
+{ name: '江西', value: 5012 },
+{ name: '山东', value: 17559 },
+{ name: '河南', value: 25806 },
+{ name: '湖北', value: 8751 },
+{ name: '湖南', value: 4656 },
+{ name: '广东', value: 30294 },
+{ name: '广西', value: 4650 },
+{ name: '海南', value: 4657 },
+{ name: '重庆市', value: 4358 },
+{ name: '四川', value: 3998 },
+{ name: '贵州', value: 5012 },
+{ name: '云南', value: 5031 },
+{ name: '西藏', value: 3215 },
+{ name: '陕西', value: 3102 },
+{ name: '甘肃', value: 2999 },
+{ name: '青海', value: 1023 },
+{ name: '宁夏', value: 1362 },
+{ name: '新疆', value: 1079 }
+            ]
+        }
+    ]
+};
+                    
+
+    window.onresize = myChart.resize;
+    // 为echarts对象加载数据 
+    myChart.setOption(option);
+    </script>
+</body>

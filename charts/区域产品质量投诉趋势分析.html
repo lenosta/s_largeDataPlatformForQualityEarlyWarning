@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="iw">
+    <span class="title-box"></span>
+    <div class="clear"></div>
+    <div class="ptop" id="sjjkt"style="height: 535px;"></div>
+</div>
+
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/echarts.min.js"></script>
+<script>
+    $(function() {
+        /*事件监控台 start*/
+        var sjjkt = echarts.init(document.getElementById('sjjkt'));
+
+        var sjjktOption = {
+            title: {
+                text: '区域质量竞争力分析',
+                x: 'center',
+             textStyle: {
+                 fontWeight: 'normal'
+             }
+            },
+            tooltip : {
+                trigger: 'axis'
+            },
+            legend: {
+                x : 'right',
+                y : 'top',
+                data: ['2014年度统计','2015年度统计']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis : [
+                {
+                    type : 'category',
+                    splitArea:true,
+                    boundaryGap : false,
+                axisLabel: {
+                    interval: 0,
+                    rotate: 45,
+                    margin: 2
+                },
+				data: ['北京市','天津市','河北','山西','内蒙古','辽宁','吉林','黑龙江','上海市','江苏','浙江','安徽','福建','江西','山东','河南','湖北','湖南','广东','广西','海南','重庆市','四川','贵州','云南','陕西','甘肃','青海','宁夏','新疆','西藏'],
+                }
+            ],
+            yAxis : [
+                {
+                    show:false
+                }
+            ],
+            series : [
+                {
+                    name:'2014年度统计',
+                    type:'line',
+                    areaStyle: {normal: {}},
+                    smooth:true,
+                    z:3,
+                data: [94.60,94.70,79.70,100.00,92.00,90.40,75.00,55.60,95.40,96.70,89.70,88.20,90.80,93.20,95.40,85.70,90.50,95.80,86.60,100.00,80,88.50,90.40,76.90,97.50,77.30,100.00,87,100.00,100.00,0],
+                    label:{
+                        normal:{
+                            textStyle:{
+                                color:'#99d4f9'
+                            }
+                        }
+                    },
+                 /*    markPoint: {
+                        symbol:'image://../images/mark.png',
+                        symbolSize:[100,144],
+                        data:[
+                            {
+                                name: '电热水器爆炸事件',
+                                value: 554,
+                                xAxis: 7,
+                                yAxis: 554,
+                                label:{
+                                    normal:{
+                                        formatter: '福州电热水器凌晨\n爆炸\n\n\n\n\n\n\n\n'
+                                    }
+                                }
+                            }
+                        ]
+                    }, */
+                    lineStyle:{
+                        normal:{
+                            width:0
+                        }
+                    },
+                    itemStyle:{
+                        normal:{
+                            color:'pink'
+                        }
+                    }
+                },
+                {
+                    name:'2015年度统计',
+                    type:'line',
+                    areaStyle: {normal: {}},
+                    smooth:true,
+                    z:2,
+                  data: [93.1,93.9,92.9,93.6,91.7,93.1,92.8,92.5,90.7,92,90.3,93.1,91,93,92.5,91,94.3,93.5,85.6,93.1,98.1,91.3,94.3,92.8,92.7,94.5,90.6,91.2,96.1,89,0],
+                    lineStyle:{
+                        normal:{
+                            width:0
+                        }
+                    },
+                    itemStyle:{
+                        normal:{
+                            color:'#99d4f9'
+                        }
+                    }
+                }
+            ]
+        };
+
+        window.onresize = sjjkt.resize;
+        sjjkt.setOption(sjjktOption);
+        /*事件监控台 end*/
+    });
+</script>
+</body>
+</html>

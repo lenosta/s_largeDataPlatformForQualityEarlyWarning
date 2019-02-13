@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body style="background-color: #fff;">
+
+    <div id="dyhfx" class="charts-h612"></div>
+
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/echarts.min.js"></script>
+<script>
+    $(function() {
+        map1();
+    });
+    function map1(){
+        /*不合格企业产品多样化分析 start*/
+        var dyhfx = echarts.init(document.getElementById('dyhfx'));
+
+        var dyhfxOption = {
+         title : {
+            text: '重点企业按行业占比分析统计',
+            x:'center',
+             textStyle:{
+                    fontWeight:'normal'
+                }
+        },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{b}"
+            },
+            toolbox: {
+                show: true,
+                orient: 'horizontal',
+                left: 'right',
+                top: 'top',
+                feature: {
+                    dataView: {readOnly: false},
+                    restore: {},
+                    saveAsImage: {}
+                }
+            },
+            series: [
+                {
+                    name:'访问来源',
+                    type:'pie',
+
+                    data:[
+                        {value:200, name:'食品加工\n10.8%'},
+                        {value:300, name:'食品制造\n13.5%'},
+                        {value:160, name:'饮料制造\n6.34%'},
+                        {value:130, name:'烟草加工\n3.52%'},
+                        {value:100, name:'纺织业\n1.5%'},
+                        {value:100, name:'服装制造\n1.4%'},
+                        {value:130, name:'皮革制品\n3.85%'},
+                        {value:120, name:'木材加工\n2.53%'},
+                        {value:120, name:'家具制造\n2.95%'},
+                        {value:140, name:'造纸业\n4.02%'},
+                        {value:50, name:'印刷业\n0.73%'},
+                        {value:100, name:'文体制造\n1.85%'},
+                        {value:50, name:'石油加工\n0.12%'},
+                        {value:50, name:'化学制品\n0.34%'},
+                        {value:100, name:'医药制造\n1.41%'},
+                        {value:130, name:'化学纤维\n3.52%'},
+                        {value:100, name:'橡胶制品\n1.45%'},
+                        {value:100, name:'塑料制品\n4.87%'},
+                        {value:100, name:'非金属制品\n4.52%'},
+                        {value:50, name:'黑色金属\n0.83%'},
+                        {value:100, name:'有色金属\n1.80%'},
+                        {value:200, name:'金属制品\n9.41%'},
+                        {value:50, name:'专用设备\n0.86%'},
+                        {value:100, name:'交通运输\n3.61%'},
+                        {value:150, name:'电气机械\n5.32%'},
+                        {value:50, name:'电子通讯\n0.90%'},
+                        {value:50, name:'仪器仪表\n0.84%'},
+                        {value:170, name:'工艺品\n7.21%'}
+                        
+                    ]
+                }
+            ]
+        };
+        window.onresize = dyhfx.resize;
+        dyhfx.setOption(dyhfxOption);
+        /*不合格企业产品多样化分析 end*/
+    }
+</script>
+</body>
+</html>

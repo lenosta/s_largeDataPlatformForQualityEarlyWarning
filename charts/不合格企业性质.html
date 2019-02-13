@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+
+</head>
+
+<body style="background-color:#fff;">
+
+    <div class="charts-h612" id="cpdlfb"></div>
+
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <script src="../js/echarts.min.js"></script>
+    <script>
+        $(function() {
+            var cpdlfb = echarts.init(document.getElementById('cpdlfb'));
+
+            var cpdlfbOption = {
+                backgroundColor:'#fff',
+                title : {
+                    text: '重点企业种类分析',
+                     x:'center',
+                textStyle:{
+                    fontWeight:'normal'
+                }
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{b} : {d}%"
+            },
+            legend: {
+                 orient: 'vertical',
+       			 left: 'right',
+                    data:['股份合作制企业','有限责任公司','私营企业','联营企业','个体户','合伙企业','集体企业','国有企业']
+                },
+                calculable : true,
+                series : [
+                    {
+                        name:'面积模式',
+                        type:'pie',
+                        roseType : 'area',
+                        data:[
+                            {
+                                value:50,
+                                name:'股份合作制企业',
+                                itemStyle:{
+                                    normal:{
+                                        color:'#ff7445'
+                                    }
+                                }
+                            },
+                            {value:40, name:'有限责任公司',
+                                itemStyle:{
+                                    normal:{
+                                        color:'#f3ac40'
+                                    }
+                                }},
+                            {value:30, name:'私营企业',
+                                itemStyle:{
+                                    normal:{
+                                        color:'#73be47'
+                                    }
+                                }},
+                            {value:20, name:'联营企业',
+                                itemStyle:{
+                                    normal:{
+                                        color:'#09c3e4'
+                                    }
+                                }},
+                                {value:15, name:'个体户',
+                                itemStyle:{
+                                    normal:{
+                                        color:'pink'
+                                    }
+                                }},
+                                {value:10, name:'合伙企业',
+                                itemStyle:{
+                                    normal:{
+                                        color:'blue'
+                                    }
+                                }},
+                                {value:7, name:'集体企业',
+                                itemStyle:{
+                                    normal:{
+                                        color:'red'
+                                    }
+                                }},
+                                {value:5, name:'国有企业',
+                                itemStyle:{
+                                    normal:{
+                                        color:'green'
+                                    }
+                                }}
+                        ]
+                    }
+                ]
+            };
+            window.onresize = cpdlfb.resize;
+            cpdlfb.setOption(cpdlfbOption);
+            /*产品地理分布 end*/
+        });
+    </script>
+</body>
+</html>

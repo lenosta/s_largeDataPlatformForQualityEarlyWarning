@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>中国质量预警大数据平台</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <style>
+        html,body{height:inherit;}
+    </style>
+</head>
+<body>
+<!-- 问题产品披露 -->
+<div class="mydetail1">
+    <div class="dform">
+        <div class="info1">
+            <p>产品名称</p>
+            <input type="text" class="dftext allradius3">
+        </div>
+        <div class="info2">
+            <p>送检单位名称</p>
+            <input type="text" class="dftext allradius3">
+        </div>
+        <div class="info3 select-box">
+            <p>抽检单位</p>
+            <div class="allradius3"><input type="text"><i class="select-icon"></i></div>
+        </div>
+        <div class="info4">
+            <p>抽检时间</p>
+            <div class="time-boxs">
+                <div class="allradius3"><input type="text"><i class="select-icon"></i></div>
+                <p>—</p>
+                <div class="allradius3"><input type="text"><i class="select-icon"></i></div>
+            </div>
+        </div>
+        <a id="isearch" class="isearch allradius3" href="searchList.html" target="div-sc">搜索</a>
+        <a id="icount" class="icount allradius3" href="countList.html" target="div-sc">统计</a>
+    </div>
+
+    <!-- 搜索和统计的显示区域 -->
+    <div id="search-count">
+        <iframe src="searchList.html" id="div-sc" name="div-sc" width="100%" height="1053" frameborder="0"></iframe>
+    </div>
+
+</div>
+</body>

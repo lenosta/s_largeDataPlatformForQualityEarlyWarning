@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>中国质量预警大数据平台</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<header class="iframe-header">
+	<h1 class="fl"><img src="images/u17.png" class="fl">中国质量预警大数据平台</h1>
+	<ul class="fr header-user">
+		<li class="fl h-inquire"><input placeholder="搜索" class="fl" /><i class="icon fl"></i></li>
+		<li class="fl h-user-head-box"><span class="user-head fl"></span>杨阳洋</li>
+	</ul>
+</header>
+<div class="iframe-content">
+	<div class="fl iframe-menu">
+		<ul class="iframe-menu-option">
+			<a href="main.html" target="main"><li class="btn-blue"><i class="icon icon1"></i>全景分析</li></a>
+			<a href="事件监控.html" target="main"><li><i class="icon icon2"></i>事件监控</li></a>
+			<a href="高级检索-产品质量舆情.html" target="main"><li><i class="icon icon3"></i>高级检索</li></a>
+			<a href="区域预警.html" target="main"><li><i class="icon icon4"></i>区域预警</li></a>
+			<a href="行业预警.html" target="main"><li><i class="icon icon5"></i>行业预警</li></a>
+			<a href="重点产品.html" target="main"><li><i class="icon icon6"></i>重点产品</li></a>
+			<a href="国家质检总局大数据平台-重点企业.html" target="main"><li><i class="icon icon7"></i>重点企业</li></a>
+		</ul>
+	</div>
+	<div class="fl iframe-right-content">
+		<iframe src="main.html" id="main" name="main"></iframe>
+	</div>
+</div>	
+</body>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script>
+    $(document).ready(function(){
+    	setIframeSize();
+    	$('.iframe-menu-option li').each(function(){
+    		$(this).click(function(){
+    			$('.iframe-menu-option li').removeClass('btn-blue');
+    			$(this).addClass('btn-blue');
+    		});
+    	});
+
+    });
+    function setIframeSize()
+    {
+    	var wHeight=$(document).height();
+    	var rHeight=wHeight-60;
+    	$(".iframe-right-content").height(rHeight);
+    	$(".iframe-right-content").width($(".iframe-right-content").width()-1);
+    }
+
+
+</script>
+</html>

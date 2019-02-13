@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<div id="main" style="width:100%;margin:0 auto 0;height:700px"></div>
+
+	<script src="../js/jquery-1.11.3.min.js"></script>
+	<script src="../js/echarts.min.js"></script>
+	<script>
+		$(function() {
+			var myChart = echarts.init(document.getElementById('main'));
+
+			var option = {
+				title : {
+					text : '年度产品质量投诉趋势分析',
+					x : 'center',
+					textStyle : {
+						fontWeight : 'normal'
+					}
+				},
+				legend : {
+					x : 'right',
+					orient : 'vertical',
+					data : [ '投诉量' ]
+				},
+				xAxis : [ {
+					splitLine : {
+						show : true
+					},
+					type : 'category',
+					axisLabel : {
+						interval : 0,
+						rotate : 45,
+						margin : 2
+					},
+				data: ['2013年','2014年','2015年']
+				}
+
+				],
+				yAxis : [ {
+					type : 'value',
+					min : 0
+				} ],
+				series : [ 
+				 {
+					name : '投诉量',
+					type : 'bar',
+					data: [233637,386963, 473175],
+					itemStyle : {
+						normal : {
+						    color: '#B5C334',
+						    label: {
+						        show: true,
+						        position: 'top',
+						        formatter: '{c}'
+						    }
+						}
+
+					},
+					barWidth : 20
+				}
+
+				]
+			};
+
+			//使Echarts图表自适应响应窗口变化
+			window.onresize = myChart.resize;
+
+			// 为echarts对象加载数据
+			myChart.setOption(option);
+		});
+	</script>
+</body>
+</html>

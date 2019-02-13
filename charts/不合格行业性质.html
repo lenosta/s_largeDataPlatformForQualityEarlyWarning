@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="iw-top ptop" id="cpdlfb"></div>
+
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <script src="../js/echarts.min.js"></script>
+    <script>
+        $(function() {
+            var cpdlfb = echarts.init(document.getElementById('cpdlfb'));
+
+            var cpdlfbOption = {
+                backgroundColor:'#fff',
+                title : {
+                    text: '',
+                },
+                legend: {
+                    x : 'center',
+                    y : 'bottom',
+                    data : ['食品加工','食品制造','饮料制造','烟草加工','纺织业','服装制造','皮革制品','木材加工','家具制造','造纸业','印刷业','文体制造','石油加工','化学制品','医药制造','化学纤维','橡胶制品','塑料制品','非金属制品','黑色金属','有色金属','金属制品','专用设备','交通运输','电气机械','电子通讯','仪器仪表','工艺品']
+                },
+                calculable : true,
+                series : [
+                    {
+                        name:'面积模式',
+                        type:'pie',
+                        roseType : 'area',
+                        data:[
+                            {
+                                value:50,
+                                name:'食品加工',
+                                itemStyle:{
+                                    normal:{
+                                        color:'#ff7445'
+                                    }
+                                }
+                            },
+                            {value:50, name:'食品制造',
+                                itemStyle:{
+                                    normal:{
+                                        color:'#f3ac40'
+                                    }
+                                }},
+                            {value:50, name:'饮料制造',
+                                itemStyle:{
+                                    normal:{
+                                        color:'#73be47'
+                                    }
+                                }},
+                            {value:50, name:'烟草加工',
+                                itemStyle:{
+                                    normal:{
+                                        color:'#09c3e4'
+                                    }
+                                }},
+                                {value:50, name:'纺织业',
+                                itemStyle:{
+                                    normal:{
+                                        color:'pink'
+                                    }
+                                }},
+                                {value:50, name:'皮革制品',
+                                itemStyle:{
+                                    normal:{
+                                        color:'blue'
+                                    }
+                                }},
+                                {value:50, name:'木材加工',
+                                itemStyle:{
+                                    normal:{
+                                        color:'red'
+                                    }
+                                }},
+                                  {
+                                value:50,
+                                name:'家具制造',
+                                itemStyle:{
+                                    normal:{
+                                        color:'#ff7445'
+                                    }
+                                }
+                            },
+                            {
+                            value:50, 
+                            name:'造纸业',
+                                itemStyle:{
+                                    normal:{
+                                        color:'#f3ac40'
+                                    }
+                                }},
+                            {
+                            value:50, 
+                            name:'印刷业',
+                                itemStyle:{
+                                    normal:{
+                                        color:'#73be47'
+                                    }
+                                }},
+                            {
+                            value:50, 
+                            name:'文体制造',
+                                itemStyle:{
+                                    normal:{
+                                        color:'#09c3e4'
+                                    }
+                                }},
+                                {
+                                value:50, 
+                                name:'石油加工',
+                                itemStyle:{
+                                    normal:{
+                                        color:'pink'
+                                    }
+                                }},
+                                {
+                                value:50,
+                                name:'化学制品',
+                                itemStyle:{
+                                    normal:{
+                                        color:'blue'
+                                    }
+                                }},
+                                {
+                                value:50, 
+                                name:'医药制造',
+                                itemStyle:{
+                                    normal:{
+                                        color:'red'
+                                    }
+                                }},
+                                {
+                                value:50,
+                                name:'化学纤维',
+                                itemStyle:{
+                                    normal:{
+                                        color:'#ff7445'
+                                    }
+                                }
+                            },
+                            {
+                            value:50, 
+                            name:'橡胶制品',
+                                itemStyle:{
+                                    normal:{
+                                        color:'#f3ac40'
+                                    }
+                                }},
+                            {
+                            value:50, 
+                            name:'塑料制品',
+                                itemStyle:{
+                                    normal:{
+                                        color:'#73be47'
+                                    }
+                                }},
+                            {
+                            value:50, 
+                            name:'非金属制品',
+                                itemStyle:{
+                                    normal:{
+                                        color:'#09c3e4'
+                                    }
+                                }},
+                                {
+                                value:50, 
+                                name:'黑色金属',
+                                itemStyle:{
+                                    normal:{
+                                        color:'pink'
+                                    }
+                                }},
+                                {
+                                value:50,
+                                name:'有色金属',
+                                itemStyle:{
+                                    normal:{
+                                        color:'blue'
+                                    }
+                                }},
+                                {
+                                value:50, 
+                                name:'金属制品',
+                                itemStyle:{
+                                    normal:{
+                                        color:'red'
+                                    }
+                                }},
+                                  {
+                                value:50, 
+                                name:'专用设备',
+                                itemStyle:{
+                                    normal:{
+                                        color:'pink'
+                                    }
+                                }},
+                                {
+                                value:50,
+                                name:'交通运输',
+                                itemStyle:{
+                                    normal:{
+                                        color:'blue'
+                                    }
+                                }},
+                                {
+                                value:50, 
+                                name:'电气机械',
+                                itemStyle:{
+                                    normal:{
+                                        color:'red'
+                                    }
+                                }},
+                                {
+                                value:50,
+                                name:'电子通讯',
+                                itemStyle:{
+                                    normal:{
+                                        color:'#ff7445'
+                                    }
+                                }
+                            },
+                            {
+                            value:50, 
+                            name:'仪器仪表',
+                                itemStyle:{
+                                    normal:{
+                                        color:'#f3ac40'
+                                    }
+                                }},
+                                {
+                                value:50, 
+                                name:'工艺品',
+                                itemStyle:{
+                                    normal:{
+                                        color:'green'
+                                    }
+                                }}
+                        ]
+                    }
+                ]
+            };
+            window.onresize = cpdlfb.resize;
+            cpdlfb.setOption(cpdlfbOption);
+            /*产品地理分布 end*/
+        });
+    </script>
+</body>
+</html>

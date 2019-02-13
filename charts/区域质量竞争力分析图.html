@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <style>
+    html,body{background-color: #fff;}
+    </style>
+</head>
+
+<body>
+<span class="title-box"></span>
+<div class="clear"></div>
+<div class="ptop" id="sjjkt"style="height: 700px;"></div>
+
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/echarts.min.js"></script>
+<script>
+    $(function() {
+        /*事件监控台 start*/
+        var sjjkt = echarts.init(document.getElementById('sjjkt'));
+
+        var sjjktOption = {
+            title: {
+                text: '区域质量竞争力指数分析',
+                x: 'center',
+             textStyle: {
+                 fontWeight: 'normal'
+             }
+            },
+         tooltip: {
+             trigger: 'axis'
+         },
+         legend: {
+             data: ['2014年', '2015年'],
+             show: true,
+                x : 'right',
+                y : 'top',
+         },
+         
+         calculable: true,
+         xAxis: [
+        {
+            type: 'category',
+            boundaryGap: false,
+            axisLabel: {
+                interval: 0,
+                rotate: 45,
+                margin: 2
+            },
+            data: ['北京', '广东', '河北', '山西', '内蒙古', '辽宁', '吉林', '黑龙江', '上海', '江苏', '浙江', '安徽', '福建', '江西', '山东', '河南', '湖北', '湖南', '广西', '天津', '四川', '贵州', '云南', '西藏', '新疆', '甘肃', '青海', '宁夏', '陕西']
+        }
+    ],
+         yAxis: [
+        {
+            type: 'value'
+        }
+    ],
+         series: [
+        {
+            name: '2014年',
+            type: 'line',
+            smooth: true,
+            itemStyle: { normal: { color:'#078ac4', areaStyle: { type: 'default'}} },
+            data: [532, 561, 342, 464, 254, 422, 381, 474, 632, 452, 342, 464, 354, 422, 481, 504, 232, 431, 342, 464, 254, 322, 281, 254, 232, 231, 342, 464, 454]
+        },
+        
+        {
+            name: '2015年',
+            type: 'line',
+            smooth: true,
+            itemStyle: {color:'#68c3cf', normal: { areaStyle: { type: 'default'}} },
+            data: [544, 560, 470, 480, 343, 423, 442, 554, 522, 631, 542, 534, 504, 482, 531, 544, 332, 431, 342, 534, 454, 322, 281, 254, 200, 343, 323, 442, 554]
+        }
+    ]
+     };
+
+        window.onresize = sjjkt.resize;
+        sjjkt.setOption(sjjktOption);
+        /*事件监控台 end*/
+    });
+</script>
+</body>
+</html>

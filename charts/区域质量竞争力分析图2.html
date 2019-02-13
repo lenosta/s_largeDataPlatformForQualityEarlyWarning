@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <style>
+    html,body{background-color: #fff;}
+    </style>
+</head>
+<body>
+<span class="title-box"></span>
+<div class="clear"></div>
+<div class="ptop" id="sjjkt"style="height: 700px;"></div>
+
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/echarts.min.js"></script>
+<script>
+    $(function() {
+        /*事件监控台 start*/
+        var sjjkt = echarts.init(document.getElementById('sjjkt'));
+
+        var sjjktOption = {
+            title: {
+                text: '区域产品抽检合格率分析',
+                x: 'center',
+             textStyle: {
+                 fontWeight: 'normal'
+             }
+            },
+            tooltip: {
+             trigger: 'axis'
+         },
+         legend: {
+             data: ['2014年', '2015年'],
+             show: true,
+                x : 'right',
+                y : 'top',
+         },
+         
+         calculable: true,
+         xAxis: [
+        {
+            type: 'category',
+            boundaryGap: false,
+            axisLabel: {
+                interval: 0,
+                rotate: 45,
+                margin: 2
+            },
+            data: ['北京市','天津市','河北','山西','内蒙古','辽宁','吉林','黑龙江','上海市','江苏','浙江','安徽','福建','江西','山东','河南','湖北','湖南','广东','广西','海南','重庆市','四川','贵州','云南','陕西','甘肃','青海','宁夏','新疆','西藏']
+        }
+    ],
+         yAxis: [
+        {
+            type: 'value'
+        }
+    ],
+         series: [
+        {
+            name: '2014年',
+            type: 'line',
+            smooth: true,
+            itemStyle: { normal: { color:'#078ac4', areaStyle: { type: 'default'}} },
+            data: [94.60,94.70,79.70,100.00,92.00,90.40,75.00,55.60,95.40,96.70,89.70,88.20,90.80,93.20,95.40,85.70,90.50,95.80,86.60,100.00,80,88.50,90.40,76.90,97.50,77.30,100.00,87,100.00,100.00,0]
+        },
+        
+        {
+            name: '2015年',
+            type: 'line',
+            smooth: true,
+            itemStyle: {color:'#68c3cf', normal: { areaStyle: { type: 'default'}} },
+            data: [93.1,93.9,92.9,93.6,91.7,93.1,92.8,92.5,90.7,92,90.3,93.1,91,93,92.5,91,94.3,93.5,85.6,93.1,98.1,91.3,94.3,92.8,92.7,94.5,90.6,91.2,96.1,89,0]
+        }
+    ]
+     };
+
+        window.onresize = sjjkt.resize;
+        sjjkt.setOption(sjjktOption);
+        /*事件监控台 end*/
+    });
+</script>
+</body>
+</html>

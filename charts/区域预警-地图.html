@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>行业活跃度模型</title>
+</head>
+
+<body>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main" style="margin:0 auto;height:520px;"></div>
+<!-- ECharts单文件引入 -->
+<script src="../js/echarts-all.js"></script>
+
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts图表
+    var myChart = echarts.init(document.getElementById('main'));
+
+    option = {
+        backgroundColor: '#fcfcfc',
+        title : {
+            text: '',
+            subtext: '',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'item'
+        },
+        dataRange: {
+            x: 'right',
+            y: 'bottom',
+            splitList: [
+                { start: 6, end: 6, label: '6级', color: 'red' },
+                { start: 5, end: 5, label: '5级' },
+                { start: 4, end: 4, label: '4级' },
+                { start: 3, end: 3, label: '3级' },
+                { start: 2, end: 2, label: '2级' },
+                { start: 1, end: 1, label: '1级' }
+            ],
+            color: ['#E0022B', '#E09107', 'lightskyblue']
+        },
+        series : [
+            {
+                name: '质量风险等级',
+                type: 'map',
+                mapType: 'china',
+                roam: false,
+                itemStyle:{
+                    normal:{label:{show:true}},
+                    emphasis:{label:{show:true}}
+                },
+                data:[
+                    {name: '北京',value: 5},
+                    {name: '天津',value: 4},
+                    {name: '上海',value: 5},
+                    {name: '重庆',value: 3},
+                    {name: '河北',value: 4},
+                    {name: '河南',value: 4},
+                    {name: '云南',value: 2},
+                    {name: '辽宁',value: 3},
+                    {name: '黑龙江',value: 3},
+                    {name: '湖南',value: 4},
+                    {name: '安徽',value: 3},
+                    {name: '山东',value: 5},
+                    {name: '新疆',value: 1},
+                    {name: '江苏',value: 4},
+                    {name: '浙江',value: 5},
+                    {name: '江西',value: 2},
+                    {name: '湖北',value: 3},
+                    {name: '广西',value: 3},
+                    {name: '甘肃',value: 2},
+                    {name: '山西',value: 2},
+                    {name: '内蒙古',value: 1},
+                    {name: '陕西',value: 2},
+                    {name: '吉林',value: 2},
+                    {name: '福建',value: 4},
+                    {name: '贵州',value: 2},
+                    {name: '广东',value: 5},
+                    {name: '青海',value: 1},
+                    {name: '西藏',value: 1},
+                    {name: '四川',value: 4},
+                    {name: '宁夏',value: 1},
+                    {name: '海南',value: 2},
+                    {name: '台湾',value: 1},
+                    {name: '香港',value: 3},
+                    {name: '澳门',value: 2}
+                ]
+            }
+        ]
+    };
+
+
+    window.onresize = myChart.resize;
+    // 为echarts对象加载数据 
+    myChart.setOption(option);
+</script>
+</body>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body style="background-color: #fff;">
+
+    <div id="dyhfx" class="charts-h612"></div>
+
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/echarts.min.js"></script>
+<script>
+    $(function() {
+        map1();
+    });
+    function map1(){
+        /*不合格企业产品多样化分析 start*/
+        var dyhfx = echarts.init(document.getElementById('dyhfx'));
+
+        var dyhfxOption = {
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b}: {c} ({d}%)"
+            },
+            toolbox: {
+                show: true,
+                orient: 'horizontal',
+                left: 'right',
+                top: 'top',
+                feature: {
+                    dataView: {readOnly: false},
+                    restore: {},
+                    saveAsImage: {}
+                }
+            },
+            series: [
+                {
+                    name:'访问来源',
+                    type:'pie',
+
+                    data:[
+                        {value:800, name:'小于3种\n86.2%'},
+                        {value:200, name:'3-5种\n8.6%'},
+                        {value:190, name:'5-10种\n6.34%'},
+                        {value:50, name:'10种以上\n0.4%'}
+                        
+                    ]
+                }
+            ]
+        };
+        window.onresize = dyhfx.resize;
+        dyhfx.setOption(dyhfxOption);
+        /*不合格企业产品多样化分析 end*/
+    }
+</script>
+</body>
+</html>

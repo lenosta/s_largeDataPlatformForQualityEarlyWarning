@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>行业活跃度模型</title>
+</head>
+
+<body>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main" style="width:90%;margin:0 auto 0;height:415px"></div>
+<!-- ECharts单文件引入 -->
+<script src="../js/echarts-all.js"></script>
+<script type="text/javascript">
+
+    var myChart = echarts.init(document.getElementById('main'));
+
+    option = {
+
+        title : {
+            text: '',
+            subtext: '',
+            x:'center'
+        },
+        legend: {
+            show:true,
+            orient: 'vertical',
+            left: 'left',
+            data: ['小米空气净化器', '桑乐金空气净化器', '伟士德空气净化器']
+        },
+        tooltip : {
+            trigger: 'item'
+        },
+        dataRange: {
+            min: 0,
+            max: 300000,
+            x: 'right',
+            y: 'bottom',
+            text: ['高', '低'],           // 文本，默认为数值文本
+            color: ['orangered', 'yellow', 'lightskyblue'],
+            calculable : true
+        },
+        series : [
+            {
+                name: '小米空气净化器',
+                type: 'map',
+                mapType: 'china',
+                roam: false,
+                itemStyle:{
+                    normal:{label:{show:true}},
+                    emphasis:{label:{show:true}}
+                },
+                showLegendSymbol:true,
+                data:[
+                    {name: '河北',value: 200000},
+                    {name: '河南',value: 100000},
+                    {name: '广东',value: 200000}
+
+                ]
+            },
+            {
+                name: '桑乐金空气净化器',
+                type: 'map',
+                mapType: 'china',
+                itemStyle:{
+                    normal:{label:{show:true}},
+                    emphasis:{label:{show:true}}
+                },
+                data:[
+
+                    { name: '浙江', value: 250000 }
+
+                ]
+            },
+            {
+                name: '伟士德空气净化器',
+                type: 'map',
+                mapType: 'china',
+                itemStyle:{
+                    normal:{label:{show:true}},
+                    emphasis:{label:{show:true}}
+                },
+                data:[
+
+                    {name: '广东',value: 200000}
+                ]
+            }
+        ]
+    };
+
+
+    window.onresize = myChart.resize;
+    // 为echarts对象加载数据 
+    myChart.setOption(option);
+</script>
+</body>

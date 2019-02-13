@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<div id="main" style="width:100%;margin:0 auto 0;height:710px"></div>
+
+	<script src="../js/jquery-1.11.3.min.js"></script>
+	<script src="../js/echarts.min.js"></script>
+	<script>
+		$(function() {
+			var myChart = echarts.init(document.getElementById('main'));
+
+			var option = {
+				title : {
+					text : '区域质量舆情趋势分析',
+					x : 'center',
+					textStyle : {
+						fontWeight : 'normal'
+					}
+				},
+                tooltip : {
+				trigger: 'axis'
+			},
+				legend : {
+					x : 'right',
+					orient : 'vertical',
+					data : [ '2015年' ]
+				},
+				xAxis : [ {
+					splitLine : {
+						show : true
+					},
+					type : 'category',
+					axisLabel : {
+						interval : 0,
+						rotate : 45,
+						margin : 2
+					},
+				data: ['北京市','天津市','河北','山西','内蒙古','辽宁','吉林','黑龙江','上海市','江苏','浙江','安徽','福建','江西','山东','河南','湖北','湖南','广东','广西','海南','重庆市','四川','贵州','云南','陕西','甘肃','青海','宁夏','新疆','西藏'],
+				}
+
+				],
+				yAxis : [ {
+					type : 'value',
+					min : 70
+				} ],
+				series : [ 
+				 {
+					name : '2015年',
+					type : 'bar',
+                data: [904600, 940080, 909090, 800000, 920000, 900040, 950000, 856000, 954000, 967000, 997000, 980000, 900800, 930020, 950400, 850087, 900050, 950080, 960060, 1000000, 1018000, 890050, 900040, 960900, 970050, 770030, 800000, 870000, 900000, 100000, 24270],
+					itemStyle : {
+						normal : {
+							color : '#ff7f50'
+						}
+					},
+                    markPoint: {
+                data: [
+                    { type: 'max', name: '最大值', symbolSize: 88 },
+                    { type: 'min', name: '最小值' , symbolSize: 68}
+                ]
+            },
+            markLine: {
+                data: [
+                    { type: 'average', name: '平均值' }
+                ]
+            },
+					barWidth : 20
+				}
+
+				]
+			};
+
+			//使Echarts图表自适应响应窗口变化
+			window.onresize = myChart.resize;
+
+			// 为echarts对象加载数据
+			myChart.setOption(option);
+		});
+	</script>
+</body>
+</html>

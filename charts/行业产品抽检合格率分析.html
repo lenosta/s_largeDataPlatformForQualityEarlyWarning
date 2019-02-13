@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<div id="main" style="width:100%;margin:0 auto 0;height:700px"></div>
+
+	<script src="../js/jquery-1.11.3.min.js"></script>
+	<script src="../js/echarts.min.js"></script>
+	<script>
+		$(function() {
+			var myChart = echarts.init(document.getElementById('main'));
+
+			var option = {
+				title : {
+					text : '行业产品抽检合格率分析',
+					x : 'center',
+					textStyle : {
+						fontWeight : 'normal'
+					}
+				},
+tooltip: {
+    trigger: 'axis'
+},
+				legend : {
+					x : 'right',
+					orient : 'vertical',
+					data : [ '2011年', '2012年', '2013年', '2014年', '2015年' ]
+				},
+				xAxis : [ {
+					splitLine : {
+						show : true
+					},
+					type : 'category',
+					axisLabel : {
+						interval : 0,
+						rotate : 45,
+						margin : 2
+					},
+					data : [ '日用及纺织品', '轻工产品', '机械及安防', '电子电器', '电工及材料',
+							'建筑装饰装修材料', '农业生产资料', '食品相关产品' ]
+				}
+
+				],
+				yAxis : [ {
+					type : 'value',
+					min : 70
+				} ],
+				series : [ {
+					name : '2011年',
+					type : 'line',
+					data : [ 90, 84.4, 91.6, 81.6, 87.3, 82, 87.2, 90.3 ],
+
+					itemStyle : {
+						normal : {
+							color : '#79FF79'
+						}
+					},
+					symbolSize : 8,
+					lineStyle : {
+						normal : {
+							width : 3
+						}
+					}
+				}, {
+					name : '2012年',
+					type : 'line',
+					data : [ 90.5, 89.5, 89.1, 84.5, 87.2, 88.0, 90.7, 97.2 ],
+
+					itemStyle : {
+						normal : {
+							color : 'blue'
+						}
+					},
+					symbolSize : 8,
+					lineStyle : {
+						normal : {
+							width : 3
+						}
+					}
+				}, {
+					name : '2013年',
+					type : 'line',
+					data : [ 87.8, 86.5, 88.9, 85.8, 88.0, 88.0, 91.2, 91.8 ],
+
+					itemStyle : {
+						normal : {
+							color : 'yellow'
+						}
+					},
+					symbolSize : 8,
+					lineStyle : {
+						normal : {
+							width : 3
+						}
+					}
+				}, {
+					name : '2014年',
+					type : 'line',
+					data : [ 88.2, 86.0, 91.8, 86.6, 91.8, 91.2, 91.2, 98.5 ],
+					itemStyle : {
+						normal : {
+							color : 'pink'
+						}
+					},
+					symbolSize : 8,
+					lineStyle : {
+						normal : {
+							width : 3
+						}
+					}
+				}, {
+					name : '2015年',
+					type : 'bar',
+					data : [ 87.0, 88.7, 94.2, 79.3, 90.1, 92.2, 93.5, 96.8 ],
+					itemStyle : {
+						normal : {
+							color : '#99d4f9'
+						}
+					},
+					barWidth : 20
+				}
+
+				]
+			};
+
+			//使Echarts图表自适应响应窗口变化
+			window.onresize = myChart.resize;
+
+			// 为echarts对象加载数据
+			myChart.setOption(option);
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div id="main" style="width:100%;margin:0 auto 0;height:560px"></div>
+
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/echarts.min.js"></script>
+<script>
+    $(function() {
+        var myChart = echarts.init(document.getElementById('main'));
+
+        var option = {
+        title: {
+             text: '区域质量竞争力分析',
+             x: 'center',
+             textStyle: {
+                 fontWeight: 'normal'
+             }
+            },
+            tooltip: {
+                trigger: 'axis',
+                formatter: "地区：{b}<br/>{a}：{c}"
+            },
+            color: ['red','pink'],
+            legend: {
+                show: true,
+                data: ['2014年度统计','2015年度统计']
+            },
+            toolbox: {
+                show: false
+            },
+            calculable: true,
+            xAxis: [{
+                name: '',
+                type: 'category',
+                boundaryGap : true,
+                axisLabel: {
+                    interval: 0,
+                    rotate: 45,
+                    margin: 2
+                },
+                splitLine: {
+                    show: false
+                },
+				data: ['澳门','海南','西藏','宁夏','青海','香港','台湾','广西','甘肃','重庆','贵州','陕西','吉林','江西','湖南','黑龙江','内蒙古','湖北','云南','福建','上海','安徽','北京','河北','河南','四川','浙江','辽宁','江苏','广东'],
+            }],
+            yAxis: [{
+                type: 'value'
+            }],
+            series: [{
+                name: '2014年度统计',
+                type: 'line',
+                data: [82, 78, 74, 73, 86, 87, 85, 83, 81, 80, 88, 75, 78, 68, 70, 72, 71, 84, 76, 72, 74, 77, 62, 66, 64, 61, 63, 89, 78, 77, 89],
+               /*  lineStyle:{
+                	normal:{
+                		 color: '#99d4f9'
+                	}
+                } */
+                markPoint: {
+                    symbol:'image://../images/mark.png',
+                    symbolSize:[82,144],
+                    label:{
+                        normal:{
+                            show:true,
+                            formatter:'gfgg',
+                            textStyle:{
+                                color:'green'
+                            }
+                        }
+                    }
+                }
+            },{
+             name: '2015年度统计',
+                  type: 'line',
+                  data: [90, 98, 74, 83, 66, 87, 65, 93, 101, 90, 68, 85, 98, 68, 60, 82, 88, 76, 65, 52, 94, 47, 62, 86, 74, 91, 55, 77, 75, 86, 81],
+                  markPoint: {
+                    symbol:'image://../images/mark.png',
+                    symbolSize:[82,144],
+                    label:{
+                        normal:{
+                            show:true,
+                            formatter:'',
+                            textStyle:{
+                                color:'blue'
+                            }
+                        }
+                    }
+                }
+            }]
+        };
+
+        //使Echarts图表自适应响应窗口变化
+        window.onresize = myChart.resize;
+
+        // 为echarts对象加载数据
+        myChart.setOption(option);
+    });
+</script>
+</body>
+</html>

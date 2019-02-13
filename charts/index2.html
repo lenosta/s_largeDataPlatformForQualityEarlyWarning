@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div id="main" class="ptop" style="width:100%;margin:0 auto 0;height:380px"></div>
+
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/echarts.min.js"></script>
+<script>
+    $(function() {
+        var myChart = echarts.init(document.getElementById('main'));
+
+        var option = {
+            title: {
+                text: '',
+                textStyle:{
+                    fontWeight:'normal'
+                }
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                x : 'right',
+                y : 'top',
+                data:['质监披露','举报投诉','新闻曝光']
+            },
+            xAxis : [
+                {
+                    splitLine: {show: true},
+                    type : 'category',
+                    boundaryGap : false,
+                    axisLabel: {
+                        interval: 0,
+                        rotate: 45,
+                        margin: 2
+                    },
+                    data: ['食品加工', '食品制造', '饮料制造', '烟草加工', '纺织业', '服装制造', '皮革制品', '木材加工', '家具制造', '造纸业', '印刷业', '文体制造', '石油加工', '化学制品', '医药制造', '化学纤维', '橡胶制品', '塑料制品', '非金属制品', '黑色金属', '有色金属', '金属制品', '专用设备', '交通运输', '电气机械', '电子通讯', '仪器仪表', '工艺品']
+                }
+
+            ],
+            yAxis : [
+                {
+                    name: '次数',
+                    type : 'value',
+                    min:0
+                }
+            ],
+                series: [
+                {
+                    name:'新闻曝光',
+                    type:'line',
+                    data: [722, 576, 312, 512, 196, 350, 384, 517, 22, 371, 214, 309, 273, 624, 553, 463, 404, 301, 376, 602, 225, 301, 210, 50, 89, 400, 230, 257],
+                    lineStyle:{
+                        normal:{
+                            width:0
+                        }
+                    },
+                    areaStyle: {
+                        normal: {
+                            color:'rgba(136,143,250,0.7)'
+                        }
+                    }
+                },
+                {
+                    name:'举报投诉',
+                    type:'line',
+                    data: [561, 408, 106, 356, 98, 145, 142, 308,51, 96, 140, 5, 37, 102, 426, 231, 252, 352, 213, 200, 488, 209, 120, 150, 12, 230, 79, 129],
+                    lineStyle:{
+                        normal:{
+                            width:0
+                        }
+                    },
+                    areaStyle: {
+                        normal: {
+                            color: '#73be47'
+                        }
+                    }
+                }
+                ,
+                {
+                    name: '质监披露',
+                    type: 'line',
+                    data: [453, 330, 182, 226, 48, 108, 85, 177, 41, 114, 23, 16, 53, 88, 329, 244, 130, 303, 140, 152, 406, 116, 94, 166, 38, 356, 68, 82],
+                    lineStyle: {
+                        normal: {
+                            width: 0
+                        }
+                    },
+                    areaStyle: {
+                        normal: {
+                            color: '#ff7445'
+                        }
+                    },
+                    barWidth: 20
+                }
+            ]
+        };
+
+        //使Echarts图表自适应响应窗口变化
+        window.onresize = myChart.resize;
+
+        // 为echarts对象加载数据
+        myChart.setOption(option);
+    });
+</script>
+</body>
+</html>

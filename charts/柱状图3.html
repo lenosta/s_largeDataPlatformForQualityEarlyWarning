@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link href="../css/main.css" rel="stylesheet">
+<link href="../css/style.css" rel="stylesheet">
+<script src="../js/echarts.min.js"></script>
+</head>
+
+<body style="background-color: #fff;">
+	<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" class="charts-h612" ></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+         title: {
+                text: '年度质量舆情趋势分析',
+                x: 'center',
+                textStyle: {
+                    fontWeight: 'normal'
+                }
+            },
+			color : ['#ff7445','pink','green','red','#09c3e4','#f3ac40'],
+			tooltip : {
+				trigger: 'axis'
+			},
+			toolbox: {
+				show: false,
+				orient: 'horizontal',
+				left: 'right',
+				top: 'top',
+				feature: {
+					dataView: {readOnly: false},
+					restore: {},
+					saveAsImage: {}
+				}
+			},
+			calculable : false,
+			xAxis : [
+				{
+					type : 'category',
+                    data : ['2013年','2014年','2015年'],
+					splitLine:{
+						show : false
+					},
+				}
+			],
+			yAxis : [
+				{
+					type : 'value',
+					name : '单位（个）',
+					min : 0,
+					max : 2000000,
+					splitLine:{
+						lineStyle:{
+							color : 'green'
+						}
+					}
+					
+					
+				}
+			],
+			series : [
+				{
+					name:'新闻量',
+					type:'bar',
+					data:[51534,72516,86361],
+					markPoint: {
+						symbol:'image://../images/mark.png',
+					}
+				},
+				{
+					name:'博客量',
+					type:'bar',
+					data:[364800,462800,664300],
+					markPoint: {
+						symbol:'image://../images/mark.png',
+					}
+				},
+				{
+					name:'论坛量',
+					type:'bar',
+					data:[672900,774300,945200],
+					markPoint: {
+						symbol:'image://../images/mark.png',
+					}
+				},
+				{
+					name:'微博量',
+					type:'bar',
+					data:[462800,551600,737000],
+					markPoint: {
+						symbol:'image://../images/mark.png',
+					}
+				},
+				{
+					name:'微信量',
+					type:'bar',
+					data:[200056,1343700,1443700],
+					markPoint: {
+						symbol:'image://../images/mark.png',
+					}
+				},
+				{
+					name:'其他',
+					type:'bar',
+					data:[26420,36120,52210]
+				}
+			]
+		};
+
+		window.onresize = myChart.resize;
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+
+</body>
+</html>

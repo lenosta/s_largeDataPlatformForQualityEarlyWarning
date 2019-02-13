@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div id="main" style="width:100%;margin:0 auto 0;height:380px"></div>
+
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/echarts.min.js"></script>
+<script>
+    $(function() {
+        var myChart = echarts.init(document.getElementById('main'));
+
+        var option = {
+            tooltip: {
+                trigger: 'axis',
+                formatter: "时间：{b}<br/>{a}：{c}"
+            },
+            color: ['#2B85DB'],
+            legend: {
+                show: true,
+                data: ['空气净化器质量事件']
+            },
+            toolbox: {
+                show: false
+            },
+            calculable: true,
+            xAxis: [{
+                name: '',
+                type: 'category',
+                boundaryGap : false,
+                axisLabel: {
+                    interval: 0,
+                    rotate: 45,
+                    margin: 2
+                },
+                splitLine: {
+                    show: false
+                },
+                data: ['2015年4月', '2015年5月', '2015年6月', '2015年7月', '2015年8月', '2015年9月', '2015年10月', '2015年11月', '2015年12月', '2016年1月', '2016年2月', '2016年3月']
+            }],
+            yAxis: [{
+                type: 'value'
+            }],
+            series: [{
+                name: '空气净化器质量事件',
+                type: 'line',
+                data: [1421, 1279, 703, 530, 821, 1030, 1134, 1743, 1681, 2185, 1521, 1632],
+                markPoint: {
+                    symbol:'image://../images/mark.png',
+                    symbolSize:[82,144],
+                    label:{
+                        normal:{
+                            show:true,
+                            formatter:'小米空气净化\n器深陷质量门\n\n\n\n\n\n\n\n',
+                            textStyle:{
+                                color:'#fff'
+                            }
+                        }
+                    }
+                }
+            }]
+        };
+
+        //使Echarts图表自适应响应窗口变化
+        window.onresize = myChart.resize;
+
+        // 为echarts对象加载数据
+        myChart.setOption(option);
+    });
+</script>
+</body>
+</html>

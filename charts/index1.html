@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>中国质量预警大数据平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+</head>
+<body style="background:url(../images/main-bg.png) no-repeat center;-webkit-background-size:100% 100%;background-size: 100% 100%;">
+<div class="index-topdiv">
+    <a href="../事件监控.html" target="main"><div id="index-map" class="center"></div></a>
+    <div class="center-txt">
+        <p><span>186</span>次&nbsp;&nbsp;福州电热水器凌晨爆炸</p>
+    </div>
+    <div class="left-top">
+        <h2>产品质量事件预警</h2><br/>
+        <p>今日累计质量监测事件数</p>
+        <p class="txtorg">25,084</p><br/>
+        <p>今日累计预警</p>
+        <p class="numbox">28</p>
+    </div>
+    <div class="left-bottom">
+        <img src="../images/ybp.png" width="186" height="188"/>
+    </div>
+    <div class="right-top">
+        <table class="rt-table">
+            <caption><i class="icon icon-px"></i>实时统计</caption>
+            <thead>
+                <tr>
+                    <th>时间</th>
+                    <th>地区</th>
+                    <th>来源</th>
+                </tr>
+            </thead>
+            <tbody>
+                 <tr>
+                    <td>	03:25	</td>
+                    <td>	上海	</td>
+                    <td>	光明网	</td>
+                </tr>
+                <tr>
+                    <td>	04:51	</td>
+                    <td>	四川	</td>
+                    <td>	网易	</td>
+                </tr>
+                <tr>
+                    <td>	 07:34	</td>
+                    <td>	兰州	</td>
+                    <td>	中新网	</td>
+                </tr>
+                <tr>
+                    <td>	 07:46	</td>
+                    <td>	邯郸	</td>
+                    <td>	中国质量热讯	</td>
+                </tr>
+                <tr>
+                    <td>	08:34	</td>
+                    <td>	上海	</td>
+                    <td>	央视新闻网	</td>
+                </tr>
+                <tr>
+                    <td>	 08:52	</td>
+                    <td>	郑州	</td>
+                    <td>	人民网	</td>
+                </tr>
+                <tr>
+                    <td>	 09:35	</td>
+                    <td>	成都	</td>
+                    <td>	新浪网	</td>
+                </tr>
+                <tr>
+                    <td>	10:14	</td>
+                    <td>	柳州	</td>
+                    <td>	南都网	</td>
+                </tr>
+                <tr>
+                    <td>	10:16	</td>
+                    <td>	广州	</td>
+                    <td>	新华网	</td>
+                </tr>
+                <tr>
+                    <td>	10:21	</td>
+                    <td>	中山	</td>
+                    <td>	天涯论坛	</td>
+                </tr>
+                <tr>
+                    <td>	 10:25	</td>
+                    <td>	盘锦	</td>
+                    <td>	中国青年网	</td>
+                </tr>
+                <tr>
+                    <td>	10:27	</td>
+                    <td>	辽源	</td>
+                    <td>	中国经济网	</td>
+                </tr>
+                <tr>
+                    <td>	10:30	</td>
+                    <td>	廊坊	</td>
+                    <td>	消费质量报	</td>
+                </tr>
+                <tr>
+                    <td>	 10:38	</td>
+                    <td>	芜湖	</td>
+                    <td>	新浪微博	</td>
+                </tr>
+                <tr>
+                    <td>	 10:53	</td>
+                    <td>	西宁	</td>
+                    <td>	凤凰网	</td>
+                </tr>
+                <tr>
+                    <td>	11:04	</td>
+                    <td>	鄂州	</td>
+                    <td>	腾讯网	</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="../js/echarts-all.js"></script>
+<script>
+
+    var myChart = echarts.init(document.getElementById('index-map'));
+
+    option = {
+        title: {
+            text: '',
+            left: 'center',
+            textStyle: {
+                color: '#fff'
+            }
+        },
+        geo: {
+            map: 'china',
+            label: {
+                emphasis: {
+                    show: false
+                }
+            },
+            roam: true,
+            itemStyle: {
+                normal: {
+                    areaColor: '#323c48',
+                    borderColor: '#111'
+                },
+                emphasis: {
+                    areaColor: '#2a333d'
+                }
+            }
+        },
+        legend: {
+            show: false,
+            orient: 'vertical',
+            left: 'left',
+            data: ['质量风险等级']
+        },
+        tooltip: {
+            trigger: 'item'
+        },
+        dataRange: {
+            show: true,
+            x: '350px',
+            y: '530px',
+            splitList: [
+                { start: 6, end: 6, label: '6级', color: 'red'},
+                { start: 5, end: 5, label: '5级' },
+                { start: 4, end: 4, label: '4级' },
+                { start: 3, end: 3, label: '3级' },
+                { start: 2, end: 2, label: '2级' },
+                { start: 1, end: 1, label: '1级' }
+            ],
+            color: ['#E0022B', '#E09107', 'lightskyblue'],
+            textStyle: {
+                color: '#fff'
+            },
+        },
+        series: [
+            {
+                name: '今日质量风险等级',
+                type: 'map',
+                mapType: 'china',
+                roam: false,
+                itemStyle: {
+                    normal: { label: { show: true} },
+                    emphasis: { label: { show: true} }
+                },
+                showLegendSymbol: true,
+                data: [
+                    { name: '北京', value: 3 },
+                    { name: '天津', value: 4 },
+                    { name: '上海', value: 5 },
+                    { name: '重庆', value: 3 },
+                    { name: '河北', value: 2 },
+                    { name: '河南', value: 4 },
+                    { name: '云南', value: 2 },
+                    { name: '辽宁', value: 3 },
+                    { name: '黑龙江', value: 1 },
+                    { name: '湖南', value: 4 },
+                    { name: '安徽', value: 3 },
+                    { name: '山东', value: 4 },
+                    { name: '新疆', value: 1 },
+                    { name: '江苏', value: 5 },
+                    { name: '浙江', value: 3 },
+                    { name: '江西', value: 2 },
+                    { name: '湖北', value: 3 },
+                    { name: '广西', value: 3 },
+                    { name: '甘肃', value: 2 },
+                    { name: '山西', value: 2 },
+                    { name: '内蒙古', value: 1 },
+                    { name: '陕西', value: 2 },
+                    { name: '吉林', value: 2 },
+                    { name: '福建', value: 5 },
+                    { name: '贵州', value: 1 },
+                    { name: '广东', value: 5 },
+                    { name: '青海', value: 3 },
+                    { name: '西藏', value: 1 },
+                    { name: '四川', value: 4 },
+                    { name: '宁夏', value: 1 },
+                    { name: '海南', value: 2 },
+                    { name: '台湾', value: 1 },
+                    { name: '香港', value: 1 },
+                    { name: '澳门', value: 2 }
+                ]
+            }
+        ]
+
+
+    };
+
+
+    window.onresize = myChart.resize;
+    // 为echarts对象加载数据
+    myChart.setOption(option);
+</script>
+</body>
+</html>

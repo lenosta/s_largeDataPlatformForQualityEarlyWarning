@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<div id="main" style="width:100%;margin:0 auto 0;height:700px"></div>
+
+	<script src="../js/jquery-1.11.3.min.js"></script>
+	<script src="../js/echarts.min.js"></script>
+	<script>
+		$(function() {
+			var myChart = echarts.init(document.getElementById('main'));
+
+			var option = {
+				title : {
+					text : '区域产品质量舆情趋势分析',
+					x : 'center',
+					textStyle : {
+						fontWeight : 'normal'
+					}
+				},
+                tooltip : {
+				trigger: 'axis'
+			},
+				legend : {
+					x : 'right',
+					orient : 'vertical',
+					data : [ '2015年' ]
+				},
+				xAxis : [ {
+					splitLine : {
+						show : true
+					},
+					type : 'category',
+					axisLabel : {
+						interval : 0,
+						rotate : 45,
+						margin : 2
+					},
+				data: ['北京市','天津市','河北','山西','内蒙古','辽宁','吉林','黑龙江','上海市','江苏','浙江','安徽','福建','江西','山东','河南','湖北','湖南','广东','广西','海南','重庆市','四川','贵州','云南','陕西','甘肃','青海','宁夏','新疆','西藏'],
+				}
+
+				],
+				yAxis : [ {
+					type : 'value',
+					min : 70
+				} ],
+				series : [ 
+				 {
+					name : '2015年',
+                    markPoint: {
+                data: [
+                    { type: 'max', name: '最大值' , symbolSize: 68},
+                    { type: 'min', name: '最小值' , symbolSize: 68}
+                ]
+            },
+            markLine: {
+                data: [
+                    { type: 'average', name: '平均值' }
+                ]
+            },
+					type : 'bar',
+                data: [28345, 24334, 25252, 20585, 14025, 26233, 21046, 26254, 27234, 32643, 35534, 21425, 20114, 18254, 30363, 35235,23114, 24235, 41232, 23143, 13253, 19423, 30144,21413, 15321, 25226, 15321, 13234, 1645, 1231, 744],
+					itemStyle : {
+						normal : {
+							color : '#99d4f9'
+						}
+					},
+					barWidth : 20
+				}
+
+				]
+			};
+
+			//使Echarts图表自适应响应窗口变化
+			window.onresize = myChart.resize;
+
+			// 为echarts对象加载数据
+			myChart.setOption(option);
+		});
+	</script>
+</body>
+</html>

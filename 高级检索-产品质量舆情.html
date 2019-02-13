@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>中国质量预警大数据平台</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<div class="content">
+    <div class="content-middle">
+        <h2 class="subtitle">高级检索</h2>
+        <ul class="tabtitle">
+            <li class="topradius3"><a href="mydetail1.html" target="proTab" class="topradius3 proTab active">产品质量舆情</a></li>
+            <li class="tabtitle-link-box"></li>
+            <li class="topradius3"><a href="mydetail2.html" target="proTab" class="topradius3 proTab">问题产品披露</a></li>
+        </ul>
+
+        <div id="mydetail">
+            <iframe src="mydetail1.html" id="proTab" name="proTab" width="100%" height="1330" frameborder="0" scrolling="no"></iframe>
+        </div>
+
+    </div>
+</div>
+</body>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/echarts.min.js"></script>
+<script src="charts/dist/echarts.js"></script>
+<script>
+$(document).ready(function() {
+    $('.proTab').each(function(i){
+        $(this).click(function(){
+            $('.proTab').removeClass('active');
+            $(this).addClass('active');
+        });
+    });
+
+});
+</script>
+</html>

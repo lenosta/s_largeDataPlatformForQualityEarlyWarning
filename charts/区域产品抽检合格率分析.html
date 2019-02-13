@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div id="main" style="width:100%;margin:0 auto 0;height:560px"></div>
+
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/echarts.min.js"></script>
+<script>
+    $(function() {
+        var myChart = echarts.init(document.getElementById('main'));
+
+        var option = {
+         title : {
+        	     text: '区域产品抽检合格率分析',
+            x:'center',
+             textStyle:{
+                    fontWeight:'normal'
+                }
+        	},
+            tooltip: {
+                trigger: 'axis',
+                formatter: "地区：{b}<br/>{a}：{c}"
+            },
+            color: ['red','blue'],
+            legend: {
+                show: true,
+                orient: 'horizontal',
+				left: 'right',
+                data: ['2014年度统计','2015年度统计']
+            },
+            toolbox: {
+                show: false
+            },
+            calculable: true,
+            xAxis: [{
+                name: '',
+                type: 'category',
+                boundaryGap : true,
+                axisLabel: {
+                    interval: 0,
+                    rotate: 45,
+                    margin: 2
+                },
+                splitLine: {
+                    show: false
+                },
+				data: ['北京市','天津市','河北','山西','内蒙古','辽宁','吉林','黑龙江','上海市','江苏','浙江','安徽','福建','江西','山东','河南','湖北','湖南','广东','广西','海南','重庆市','四川','贵州','云南','西藏','陕西','甘肃','青海','宁夏','新疆'],
+            }],
+            yAxis: [{
+                type: 'value'
+            }],
+            series: [{
+                name: '2014年度统计',
+                type: 'line',
+                data: [94.60,94.70,79.70,100.00,92.00,90.40,75.00,55.60,95.40,96.70,89.70,88.20,90.80,93.20,95.40,85.70,90.50,95.80,86.60,100.00,80,88.50,90.40,76.90,97.50,0,	77.30,100.00,87,	100.00,100.00],
+               /*  lineStyle:{
+                	normal:{
+                		 color: '#99d4f9'
+                	}
+                } */
+                markPoint: {
+                    symbol:'image://../images/mark.png',
+                    symbolSize:[82,144],
+                    label:{
+                        normal:{
+                            show:true,
+                            formatter:'gfgg',
+                            textStyle:{
+                                color:'green'
+                            }
+                        }
+                    }
+                }
+            },{
+             name: '2015年度统计',
+                  type: 'line',
+                  data: [93.1,93.9,92.9,93.6,91.7,93.1,92.8,92.5,90.7,92,90.3,93.1,91,93,92.5,91,94.3,93.5,85.6,93.1,98.1,91.3,94.3,92.8,92.7,0,94.5,90.6,91.2,96.1,89],
+                  markPoint: {
+                    symbol:'image://../images/mark.png',
+                    symbolSize:[82,144],
+                    label:{
+                        normal:{
+                            show:true,
+                            formatter:'df',
+                            textStyle:{
+                                color:'blue'
+                            }
+                        }
+                    }
+                }
+            }]
+        };
+
+        //使Echarts图表自适应响应窗口变化
+        window.onresize = myChart.resize;
+
+        // 为echarts对象加载数据
+        myChart.setOption(option);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>中国质量预警大数据平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body style="background-color: #fff;">
+    <div class="charts-h612" id="iw-top"></div>
+
+</body>
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/echarts.min.js"></script>
+
+<script>
+    $(function(){
+        var iwTop = echarts.init(document.getElementById('iw-top'));
+
+        var iwTopOption = {
+            title: {
+                text: '月度质量舆情趋势分析',
+                x: 'center',
+                textStyle: {
+                    fontWeight: 'normal'
+                }
+            },
+            tooltip : {
+				trigger: 'axis'
+			},
+            legend: {
+                 x: 'right',
+                orient: 'vertical',
+               
+                data:['新闻量','博客量','论坛量','微博量','微信量','其他']
+            },
+            xAxis : [
+                {
+                    splitLine: {show: true},
+                    type : 'category',
+                    data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+                }
+
+            ],
+            yAxis : [
+                {
+                    type : 'value',
+                    min:70
+                }
+            ],
+            series : [
+                {
+                    name:'新闻量',
+                    type:'line',
+					data:[134200,153000,168800,112300,193400,177600,188900,154200,182600,175200,136200,171600],
+
+
+                    itemStyle: {
+                        normal: {
+                            color: 'blue'
+                        }
+                    },
+                    symbolSize:8,
+                    lineStyle:{
+                        normal:{
+                            width:3
+                        }
+                    }
+                },
+                {
+                    name:'博客量',
+                    type:'line',
+					data:[26000,31200,69200,82300,72600,95300,115900,88600,112600,126800,116900,149600],
+
+
+                    itemStyle: {
+                        normal: {
+                            color: 'green'
+                        }
+                    },
+                    symbolSize:8,
+                    lineStyle:{
+                        normal:{
+                            width:3
+                        }
+                    }
+                },
+                {
+                    name:'论坛量',
+                    type:'line',
+					data:[21300,35200,61300,26800,42500,62400,73900,42700,36100,42400,36900,47600],
+
+
+                    itemStyle: {
+                        normal: {
+                            color: 'red'
+                        }
+                    },
+                    symbolSize:8,
+                    lineStyle:{
+                        normal:{
+                            width:3
+                        }
+                    }
+                },
+                   {
+                    name:'微信量',
+                    type:'line',
+					data:[27300,34600,46200,38600,78700,121600,96100,110400,123400,143400,131600,153100],
+
+
+                    itemStyle: {
+                        normal: {
+                            color: '#09c3e4'
+                        }
+                    },
+                    symbolSize:8,
+                    lineStyle:{
+                        normal:{
+                            width:3
+                        }
+                    }
+                },
+                {
+                    name:'其他',
+                    type:'line',
+					data:[76100,32100,20400,13400,53400,51600,53600,30400,13400,21400,41600,56100],
+                    itemStyle: {
+                        normal: {
+                            color: '#f3ac40'
+                        }
+                    },
+                    symbolSize:8,
+                    lineStyle:{
+                        normal:{
+                            width:3
+                        }
+                    }
+                }
+
+            ]
+        };
+
+        iwTop.setOption(iwTopOption);
+
+    });
+</script>
+</html>

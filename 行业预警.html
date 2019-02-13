@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>中国质量预警大数据平台</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<div class="content">
+    <div class="content-middle">
+        <h2 class="subtitle">行业预警</h2>
+        <div class="iw">
+            <span class="title-box">行业预警指数对比图</span>
+            <div class="clear"></div>
+            <div class="iw-top ptop" id="iw-top"></div>
+        </div>
+        <div class="iw">
+            <span class="title-box">每日行业预警指标统计</span>
+            <div class="clear"></div>
+            <div class="ptop" id="iw-bottom"style="height: 1000px;"></div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/echarts.min.js"></script>
+
+<script>
+    $(function(){
+        var iwTop = echarts.init(document.getElementById('iw-top'));
+
+        var iwTopOption = {
+            title: {
+                text: '',
+                textStyle:{
+                    fontWeight:'normal'
+                }
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                x : 'right',
+                y : 'top',
+                data:['今日','最高','最低']
+            },
+            xAxis : [
+                {
+                    splitLine: {show: true},
+                    type : 'category',
+                    axisLabel: {
+                        interval: 0,
+                        rotate: 45,
+                        margin: 2
+                    },
+                    data : ['食品加工','食品制造','饮料制造','烟草加工','纺织业','服装制造','皮革制品','木材加工','家具制造','造纸业','印刷业','文体制造','石油加工','化学制品','医药制造','化学纤维','橡胶制品','塑料制品','非金属制品','黑色金属','有色金属','金属制品','专用设备','交通运输','电气机械','电子通讯','仪器仪表','工艺品']
+                }
+
+            ],
+            yAxis : [
+                {
+                    type : 'value',
+                    min:55
+                }
+            ],
+            series : [
+                {
+                    name:'今日',
+                    type:'bar',
+                    data:[87.96,83.4,88.56,78.37,86.33,86.35,79.15,78.38,71.19,71.02,69.75,69.56,65.44,75.11,77.86,80.57,80.56,74.22,73.4,70.72,73.06,75.88,76.9,76.79,73.2,74.05,62.86,60.97],
+                    itemStyle: {
+                        normal: {
+                            color: '#99d4f9'
+                        }
+                    },
+                    barWidth:20
+                },
+                {
+                    name:'最高',
+                    type:'line',
+                    data:[88.32,83.36,87.95,80.78,87.87,86.5,79.6,82.3,75.3,74.78,69.2,73.32,66.3,79.3,82.36,81.21,86.52,73.36,75.55,70.64,72.23,78.32,80.52,79.63,76.52,79.32,63.52,64.32],
+
+
+                    itemStyle: {
+                        normal: {
+                            color: '#ffa400'
+                        }
+                    },
+                    symbolSize:8,
+                    lineStyle:{
+                        normal:{
+                            width:3
+                        }
+                    }
+                },
+                {
+                    name:'最低',
+                    type:'line',
+                    data:[84.31,72.7,80.6,77.36,83.6,83.9,73.5,77.3,70.03,65.25,65.21,70.42,64.36,73.21,76.32,72.11,79.21,70.63,68.67,65.96,64.69,74.92,75.92,73.12,72.41,71.03,58.36,58.88],
+                    itemStyle: {
+                        normal: {
+                            color: '#45b4e6'
+                        }
+                    },
+                    symbolSize:8,
+                    lineStyle:{
+                        normal:{
+                            width:3
+                        }
+                    }
+                }
+
+            ]
+        };
+
+        iwTop.setOption(iwTopOption);
+
+        var iwBottom = echarts.init(document.getElementById('iw-bottom'));
+
+        var iwBottomOption = {
+            title: {
+                text: '',
+                textStyle:{
+                    fontWeight:'normal'
+                }
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                x : 'right',
+                y : 'top',
+                data:['不合格品牌量','涉及企业数量','波及城市数量','日增投诉量','日增新闻曝光量']
+            },
+            xAxis: {
+                name: '个数',
+                type:'value',
+                splitLine: {show: false}
+            },
+            yAxis: {
+                
+                type:'category',
+                splitLine: {show: false},
+                data: ['金属制品', '专用设备', '有色金属', '化学制品', '医药制造', '烟草加工', '造纸业', '家具制造', '电子通讯', '黑色金属', '非金属制品', '纺织业', '木材加工', '交通运输', '化学纤维', '仪器仪表', '石油加工', '饮料制造', '皮革制品', '工艺品', '塑料制品', '纺织业', '印刷业', '橡胶制品', '服装制造', '食品加工', '电气机械', '食品制造']
+            },
+            series:[
+                {
+                    name:'不合格品牌量',
+                    type: 'bar',
+                    stack: '总量',
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'insideRight'
+                        }
+                    },
+                    data: [10, 14, 13, 9, 5, 12, 34, 9, 21, 29, 16, 14, 19, 19, 26, 16, 23,32, 16, 24, 41, 18, 14, 22, 28, 11, 32, 45],
+                    itemStyle: {
+                        normal: {
+                            color: '#ff7f50'
+                        }
+                    },
+                    barWidth:30
+                },
+                {
+                    name:'涉及企业数量',
+                    type: 'bar',
+                    stack: '总量',
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'insideRight'
+                        }
+                    },
+                    data: [23, 6, 6, 5, 3, 8, 19, 7, 11, 9, 7, 5, 4, 11, 13, 9, 12, 21, 7, 11, 18, 6, 9, 9, 13, 8, 28, 20],
+
+                    itemStyle: {
+                        normal: {
+                            color: '#B5C334'
+                        }
+                    }
+                },
+                {
+                    name:'波及城市数量',
+                    type: 'bar',
+                    stack: '总量',
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'insideRight'
+                        }
+                    },
+                    data: [35, 31, 44, 28, 11, 33, 45, 34, 55, 23, 33, 51, 31, 45, 35, 61, 41, 45, 51, 37, 59, 44, 31, 40, 65, 33, 56, 59],
+                    itemStyle: {
+                        normal: {
+                            color: '#FCCE10'
+                        }
+                    }
+                },
+                {
+                    name:'日增投诉量',
+                    type: 'bar',
+                    stack: '总量',
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'insideRight'
+                        }
+                    },
+                    data: [46, 63, 53, 73, 53, 130, 104, 63, 92, 146, 72, 162, 126, 71, 111, 81, 123, 123, 145, 93, 152, 182, 134, 132, 210, 192, 221, 210],
+                    itemStyle: {
+                        normal: {
+                            color: '#99d4f9'
+                        }
+                    }
+                },
+                {
+                    name:'日增新闻曝光量',
+                    type: 'bar',
+                    stack: '总量',
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'insideRight'
+                        }
+                    },
+                    data: [158, 162, 186, 205, 258, 163, 163, 256, 190, 163, 246, 154, 215, 251, 222, 256, 230, 230, 256, 325, 229, 256, 325, 325, 234, 311, 231, 281],
+
+
+
+                    itemStyle: {
+                        normal: {
+                            color: '#40e0d0'
+                        }
+                    }
+                }
+            ]
+        };
+
+        iwBottom.setOption(iwBottomOption);
+    });
+</script>
+</html>

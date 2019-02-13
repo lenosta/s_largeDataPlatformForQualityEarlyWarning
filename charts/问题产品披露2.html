@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <style>
+
+    </style>
+</head>
+
+<body style="background-color:#fff;">
+    <!-- 行业不合格企业数量及分布 -->
+    <div id="hybhgslfbmap" class="charts-h612"></div>
+    
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <script src="../js/echarts.min.js"></script>
+    <script src="dist/echarts.js"></script>
+    <script>
+        $(function() {
+            map2();
+        });
+        function map2(){
+            // 路径配置
+            require.config({
+                paths: {
+                    echarts: 'dist'
+                }
+            });
+
+            // 使用
+            require(
+                    [
+                        'echarts',
+                        'echarts/chart/map' // 使用柱状图就加载bar模块，按需加载
+                    ],
+                    function (ec) {
+                        // 基于准备好的dom，初始化echarts图表
+                        var hybhgslfb = ec.init(document.getElementById('hybhgslfbmap'));
+
+
+                        var hybhgslfbOption = {
+    title : {
+        text: '不合格产品地图',
+        subtext: '',
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item'
+    },
+    dataRange: {
+        min: 0,
+        max: 2500,
+        x: 'left',
+        y: 'bottom',
+        text:['高','低'],           // 文本，默认为数值文本
+        calculable : true
+    },
+    series : [
+        {
+            name: '',
+            type: 'map',
+            mapType: 'china',
+            roam: false,
+            itemStyle:{
+                normal:{label:{show:true}},
+                emphasis:{label:{show:true}}
+            },
+            data:[
+                {name: '北京',value: Math.round(Math.random()*1000)},
+                {name: '天津',value: Math.round(Math.random()*1000)},
+                {name: '上海',value: Math.round(Math.random()*1000)},
+                {name: '重庆',value: Math.round(Math.random()*1000)},
+                {name: '河北',value: Math.round(Math.random()*1000)},
+                {name: '河南',value: Math.round(Math.random()*1000)},
+                {name: '云南',value: Math.round(Math.random()*1000)},
+                {name: '辽宁',value: Math.round(Math.random()*1000)},
+                {name: '黑龙江',value: Math.round(Math.random()*1000)},
+                {name: '湖南',value: Math.round(Math.random()*1000)},
+                {name: '安徽',value: Math.round(Math.random()*1000)},
+                {name: '山东',value: Math.round(Math.random()*1000)},
+                {name: '新疆',value: Math.round(Math.random()*1000)},
+                {name: '江苏',value: Math.round(Math.random()*1000)},
+                {name: '浙江',value: Math.round(Math.random()*1000)},
+                {name: '江西',value: Math.round(Math.random()*1000)},
+                {name: '湖北',value: Math.round(Math.random()*1000)},
+                {name: '广西',value: Math.round(Math.random()*1000)},
+                {name: '甘肃',value: Math.round(Math.random()*1000)},
+                {name: '山西',value: Math.round(Math.random()*1000)},
+                {name: '内蒙古',value: Math.round(Math.random()*1000)},
+                {name: '陕西',value: Math.round(Math.random()*1000)},
+                {name: '吉林',value: Math.round(Math.random()*1000)},
+                {name: '福建',value: Math.round(Math.random()*1000)},
+                {name: '贵州',value: Math.round(Math.random()*1000)},
+                {name: '广东',value: Math.round(Math.random()*1000)},
+                {name: '青海',value: Math.round(Math.random()*1000)},
+                {name: '西藏',value: Math.round(Math.random()*1000)},
+                {name: '四川',value: Math.round(Math.random()*1000)},
+                {name: '宁夏',value: Math.round(Math.random()*1000)},
+                {name: '海南',value: Math.round(Math.random()*1000)},
+                {name: '台湾',value: Math.round(Math.random()*1000)},
+                {name: '香港',value: Math.round(Math.random()*1000)},
+                {name: '澳门',value: Math.round(Math.random()*1000)}
+            ]
+        }
+    ]
+};
+                        window.onresize = hybhgslfb.resize;
+                        // 为echarts对象加载数据
+                        hybhgslfb.setOption(hybhgslfbOption);
+                    }
+            );
+        }
+    </script>
+</body>
+</html>

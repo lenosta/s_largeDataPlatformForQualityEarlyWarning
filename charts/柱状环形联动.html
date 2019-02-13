@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>甘肃省2013年投资及增长情况</title>
+<link href="../css/main.css" rel="stylesheet">
+<link href="../css/style.css" rel="stylesheet">
+<script src="../js/echarts.min.js"></script>
+</head>
+
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width:100%;height:880px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+			backgroundColor:'#fff',
+        	grid: {
+				left: '3%',
+				right: '4%',
+				bottom: '3%',
+				top: '2%',
+				containLabel: true
+			},
+
+tooltip: {
+    trigger: 'axis'
+},
+legend: {
+    data: ['质量监测事件数'],
+     show: false,
+                x : 'right',
+                y : 'top',
+},
+
+calculable: true,
+xAxis: [
+        {
+         name: '次数',
+            type: 'value',
+            boundaryGap: [0, 0.01]
+        }
+    ],
+yAxis: [
+        {
+            type: 'category',
+            data: ['澳门', '西藏', '海南', '宁夏', '青海', '香港', '台湾', '广西', '甘肃', '重庆', '贵州', '陕西', '吉林', '江西', '湖南', '黑龙江', '内蒙古', '湖北', '云南', '福建', '上海', '安徽', '北京', '河北', '河南', '四川', '浙江', '辽宁', '江苏', '广东']
+        }
+    ],
+    color:['#1693ed'],
+series: [
+       
+        {
+            name: '质量监测事件数',
+            type: 'bar',
+            data: [30, 34, 41, 45, 50, 55, 63, 73, 90, 101, 112, 130, 156, 194, 275, 381, 426, 455, 484, 508, 527, 563, 592, 618, 643, 688, 717, 779, 838, 1064],
+            itemStyle:{
+						normal:{
+							label:{
+								show:true,
+								position:'insideRight',
+								textStyle:{color:'#000'}
+							}
+						}
+					}
+        }
+    ]
+};
+        window.onresize = myChart.resize;
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+
+</body>
+</html>

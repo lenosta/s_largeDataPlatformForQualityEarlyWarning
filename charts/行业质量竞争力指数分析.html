@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div id="main" style="width:100%;margin:0 auto 0;height:700px"></div>
+
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/echarts.min.js"></script>
+<script>
+    $(function() {
+        var myChart = echarts.init(document.getElementById('main'));
+
+        var option = {
+         title: {
+             text: '行业质量竞争力指数分析',
+             x: 'center',
+             textStyle: {
+                 fontWeight: 'normal'
+             }
+            },
+            tooltip: {
+                trigger: 'axis',
+                formatter: "时间：{b}<br/>{a}：{c}"
+            },
+            color: ['green','red'],
+            legend: {
+                show: true,
+                x: 'right',
+                orient: 'vertical',
+                data: ['2014年度统计','2015年度统计']
+            },
+            toolbox: {
+                show: false
+            },
+            calculable: true,
+            xAxis: [{
+                name: '',
+                type: 'category',
+                boundaryGap : false,
+                axisLabel: {
+                    interval: 0,
+                    rotate: 45,
+                    margin: 2
+                },
+                splitLine: {
+                    show: false
+                },
+                data: ['食品加工','食品制造','饮料制造','烟草加工','纺织业','服装制造','皮革制品','木材加工','家具制造','造纸业','印刷业','文体制造','石油加工','化学制品','医药制造','化学纤维','橡胶制品','塑料制品','非金属制品','黑色金属','有色金属','金属制品','专用设备','交通运输','电气机械','电子通讯','仪器仪表','工艺品']
+            }],
+            yAxis: [{
+                type: 'value'
+            }],
+            series: [{
+                name: '2014年度统计',
+                type: 'line',
+                data: [482, 378, 474, 433, 516, 487, 385, 383, 421, 480, 488, 535, 458, 368, 370, 462, 371, 384, 536, 432, 474, 347, 302, 366, 464, 391, 352, 489],
+               /*  lineStyle:{
+                	normal:{
+                		 color: '#99d4f9'
+                	}
+                } */
+                markPoint: {
+                    symbol:'image://../images/mark.png',
+                    symbolSize:[82,144],
+                    label:{
+                        normal:{
+                            show:true,
+                            formatter:'',
+                            textStyle:{
+                                color:'green'
+                            }
+                        }
+                    }
+                }
+            },{
+             name: '2015年度统计',
+                  type: 'line',
+                  data: [490, 528, 423, 483, 520, 510, 365, 393, 351, 440, 500, 540, 480, 468, 360, 520, 488, 430, 515, 492, 494, 347, 362, 486, 464, 410, 385, 500],
+                  markPoint: {
+                    symbol:'image://../images/mark.png',
+                    symbolSize:[82,144],
+                    label:{
+                        normal:{
+                            show:true,
+                            formatter:'',
+                            textStyle:{
+                                color:'red'
+                            }
+                        }
+                    }
+                }
+            }]
+        };
+
+        //使Echarts图表自适应响应窗口变化
+        window.onresize = myChart.resize;
+
+        // 为echarts对象加载数据
+        myChart.setOption(option);
+    });
+</script>
+</body>
+</html>

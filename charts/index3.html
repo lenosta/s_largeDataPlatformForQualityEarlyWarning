@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div id="main" class="ptop" style="width:100%;margin:0 auto 0;height:380px"></div>
+
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/echarts.min.js"></script>
+<script>
+    $(function() {
+        var myChart = echarts.init(document.getElementById('main'));
+
+        var option = {
+            title: {
+                text: '',
+                textStyle:{
+                    fontWeight:'normal'
+                }
+            },
+            legend: {
+                x : 'right',
+                y : 'top',
+                data:['质量监控','举报投诉','新闻曝光']
+            },
+            xAxis : [
+                {
+                    splitLine: {show: true},
+                    type : 'category',
+                    boundaryGap : false,
+                    axisLabel: {
+                        interval: 0,
+                        rotate: 45,
+                        margin: 2
+                    },
+                    data : ['食品加工','食品制造','饮料制造','烟草加工','纺织业','服装制造','皮革制品','木材加工','家具制造','造纸业']
+                }
+
+            ],
+            yAxis : [
+                {
+                    type : 'value',
+                    min:70
+                }
+            ],
+            series : [
+                {
+                    name:'质量监控',
+                    type:'line',
+                    data: [87.96, 73.4, 78.37, 88.56, 96.33, 86.35, 199.15, 78.38, 81.19, 71.02],
+                    lineStyle:{
+                        normal:{
+                            width:0
+                        }
+                    },
+                    areaStyle: {
+                        normal: {
+                            color:'rgba(21,161,123,0.7)'
+                        }
+                    },
+                    barWidth:20
+                },
+                {
+                    name:'举报投诉',
+                    type:'line',
+                    data: [78.36, 89.55, 97.23, 75.64, 78.32, 80.52, 179.63, 99.52, 89.32, 73.52],
+                    lineStyle:{
+                        normal:{
+                            width:0
+                        }
+                    },
+                    areaStyle: {
+                        normal: {
+                            color:'rgba(255,164,0,0.7)'
+                        }
+                    }
+                },
+                {
+                    name:'新闻曝光',
+                    type:'line',
+                    data: [79.21, 82.63, 98.96, 70.87, 84.69, 74.92, 195.92, 73.12, 82.41, 71.03],
+                    lineStyle:{
+                        normal:{
+                            width:0
+                        }
+                    },
+                    areaStyle: {
+                        normal: {
+                            color:'rgba(136,143,250,0.7)'
+                        }
+                    }
+                }
+
+            ]
+        };
+
+        //使Echarts图表自适应响应窗口变化
+        window.onresize = myChart.resize;
+
+        // 为echarts对象加载数据
+        myChart.setOption(option);
+    });
+</script>
+</body>
+</html>

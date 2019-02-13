@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>甘肃省2013年投资及增长情况</title>
+<link href="../css/main.css" rel="stylesheet">
+<link href="../css/style.css" rel="stylesheet">
+<script src="../js/echarts.min.js"></script>
+</head>
+
+<body style="background-color: #fff;">
+	<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" class="charts-h612" ></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '月度产品质量投诉趋势分析',
+                x: 'center',
+                textStyle: {
+                    fontWeight: 'normal'
+                }
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['2014年', '2015年'],
+                show: true,
+                x: 'right',
+                orient: 'vertical',
+            },
+            
+            calculable: true,
+            xAxis: [
+        {
+            type: 'category',
+            data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+        }
+    ],
+            yAxis: [
+        {
+            type: 'value'
+        }
+    ],
+            series: [
+        {
+            name: '2014年',
+            type: 'bar',
+            data: [12567, 15357, 32325, 28023, 25141, 30573, 45236, 43415, 42435, 32143, 31235, 28513],
+            markPoint: {
+                data: [
+                    { type: 'max', name: '最大值' , symbolSize: 68 },
+                    { type: 'min', name: '最小值' , symbolSize: 68 }
+                ]
+            },
+            markLine: {
+                data: [
+                    { type: 'average', name: '平均值' }
+                ]
+            }
+        },
+        {
+            name: '2015年',
+            type: 'bar',
+            data: [15124, 18336, 35324, 32012, 30124, 34242, 54858, 50236, 42966, 53145, 44297, 32511],
+            markPoint: {
+                data: [
+                    { type: 'max', name: '最大值', symbolSize: 68 },
+                    { type: 'min', name: '最小值' , symbolSize: 68}
+                ]
+            },
+            
+            markLine: {
+                data: [
+                    { type: 'average', name: '平均值' }
+                ]
+            }
+        }
+    ]
+        }; ;
+
+		window.onresize = myChart.resize;
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+
+</body>
+</html>
